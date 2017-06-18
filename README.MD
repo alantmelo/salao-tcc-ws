@@ -8,93 +8,93 @@ HOST: http://localhost:8079/palato/
 
 + Response 200 (application/json)
 
-    + Body
+        + Body
 
-        {
-            "id": 8,
-            "nome": "Robertooo",
-            "nome_responsavel": "dasdasdas",
-            "cnpj": "123456789",
-            "email": "rm@gmail.com",
-            "ativo": true,
-            "telefone": "123123213",
-            "createdAt": "2017-06-18T12:57:42.366Z",
-            "updatedAt": "2017-06-18T14:03:57.527Z",
-            "endereco": {
-                "id": 4,
-                "cep": "123456789",
-                "logradouro": "dddsadsadas",
-                "complemento": "das",
-                "bairro": "dsa",
-                "cidade": "Maceió",
-                "estado": "das",
-                "numero": "asd",
-                "longitude": " -35.722786",
-                "latitude": "-9.668861",
-                "createdAt": "2017-06-18T12:57:42.507Z",
-                "updatedAt": "2017-06-18T14:03:57.869Z",
-                "usuarioId": 8
+            {
+                "id": 8,
+                "nome": "Robertooo",
+                "nome_responsavel": "dasdasdas",
+                "cnpj": "123456789",
+                "email": "rm@gmail.com",
+                "ativo": true,
+                "telefone": "123123213",
+                "createdAt": "2017-06-18T12:57:42.366Z",
+                "updatedAt": "2017-06-18T14:03:57.527Z",
+                "endereco": {
+                    "id": 4,
+                    "cep": "123456789",
+                    "logradouro": "dddsadsadas",
+                    "complemento": "das",
+                    "bairro": "dsa",
+                    "cidade": "Maceió",
+                    "estado": "das",
+                    "numero": "asd",
+                    "longitude": " -35.722786",
+                    "latitude": "-9.668861",
+                    "createdAt": "2017-06-18T12:57:42.507Z",
+                    "updatedAt": "2017-06-18T14:03:57.869Z",
+                    "usuarioId": 8
+                }
             }
-        }
 
 ### Get Igrejas [GET]  [/v1/web/igreja]
 
 + Response 200 (application/json)
-
-    [
-        {
-            "id": 8,
-            "nome": "Robertooo",
-            "nome_responsavel": "dasdasdas",
-            "cnpj": "123456789",
-            "email": "rm@gmail.com",
-            "ativo": true,
-            "telefone": "123123213",
-            "createdAt": "2017-06-18T12:57:42.366Z",
-            "updatedAt": "2017-06-18T14:03:57.527Z",
-            "endereco": {
-                "id": 4,
-                "cep": "123456789",
-                "logradouro": "dddsadsadas",
-                "complemento": "das",
-                "bairro": "dsa",
-                "cidade": "Maceió",
-                "estado": "das",
-                "numero": "asd",
-                "longitude": " -35.722786",
-                "latitude": "-9.668861",
-                "createdAt": "2017-06-18T12:57:42.507Z",
-                "updatedAt": "2017-06-18T14:03:57.869Z",
-                "usuarioId": 8
+        + Body
+        [
+            {
+                "id": 8,
+                "nome": "Robertooo",
+                "nome_responsavel": "dasdasdas",
+                "cnpj": "123456789",
+                "email": "rm@gmail.com",
+                "ativo": true,
+                "telefone": "123123213",
+                "createdAt": "2017-06-18T12:57:42.366Z",
+                "updatedAt": "2017-06-18T14:03:57.527Z",
+                "endereco": {
+                    "id": 4,
+                    "cep": "123456789",
+                    "logradouro": "dddsadsadas",
+                    "complemento": "das",
+                    "bairro": "dsa",
+                    "cidade": "Maceió",
+                    "estado": "das",
+                    "numero": "asd",
+                    "longitude": " -35.722786",
+                    "latitude": "-9.668861",
+                    "createdAt": "2017-06-18T12:57:42.507Z",
+                    "updatedAt": "2017-06-18T14:03:57.869Z",
+                    "usuarioId": 8
+                }
+            },
+            {
+                "id": 7,
+                "nome": "Roberto",
+                "nome_responsavel": "dasdasdas",
+                "cnpj": "123456789",
+                "email": "rm@gmail.com",
+                "ativo": true,
+                "telefone": "123123213",
+                "createdAt": "2017-06-18T12:57:23.290Z",
+                "updatedAt": "2017-06-18T12:57:23.290Z",
+                "endereco": {
+                    "id": 3,
+                    "cep": "123456789",
+                    "logradouro": "das",
+                    "complemento": "das",
+                    "bairro": "dsa",
+                    "cidade": "Maceió",
+                    "estado": "das",
+                    "numero": "asd",
+                    "longitude": " -35.722786",
+                    "latitude": "-9.668861",
+                    "createdAt": "2017-06-18T12:57:23.438Z",
+                    "updatedAt": "2017-06-18T12:57:23.438Z",
+                    "usuarioId": 7
+                }
             }
-        },
-        {
-            "id": 7,
-            "nome": "Roberto",
-            "nome_responsavel": "dasdasdas",
-            "cnpj": "123456789",
-            "email": "rm@gmail.com",
-            "ativo": true,
-            "telefone": "123123213",
-            "createdAt": "2017-06-18T12:57:23.290Z",
-            "updatedAt": "2017-06-18T12:57:23.290Z",
-            "endereco": {
-                "id": 3,
-                "cep": "123456789",
-                "logradouro": "das",
-                "complemento": "das",
-                "bairro": "dsa",
-                "cidade": "Maceió",
-                "estado": "das",
-                "numero": "asd",
-                "longitude": " -35.722786",
-                "latitude": "-9.668861",
-                "createdAt": "2017-06-18T12:57:23.438Z",
-                "updatedAt": "2017-06-18T12:57:23.438Z",
-                "usuarioId": 7
-            }
-        }
-    ]
+        ]
 
 ### Inserir Igreja [POST] [PUT] [/v1/web/igreja]
 
@@ -161,70 +161,8 @@ HOST: http://localhost:8079/palato/
 
 + Response 201 (application/json)
 
-    + Body
+        + Body
 
-        {
-            "id": 8,
-            "nome": "Robertooo",
-            "nome_responsavel": "dasdasdas",
-            "cnpj": "123456789",
-            "email": "rm@gmail.com",
-            "ativo": true,
-            "telefone": "123123213",
-            "createdAt": "2017-06-18T12:57:42.366Z",
-            "updatedAt": "2017-06-18T14:03:57.527Z",
-            "endereco": {
-                "id": 4,
-                "cep": "123456789",
-                "logradouro": "dddsadsadas",
-                "complemento": "das",
-                "bairro": "dsa",
-                "cidade": "Maceió",
-                "estado": "das",
-                "numero": "asd",
-                "longitude": " -35.722786",
-                "latitude": "-9.668861",
-                "createdAt": "2017-06-18T12:57:42.507Z",
-                "updatedAt": "2017-06-18T14:03:57.869Z",
-                "usuarioId": 8
-            },
-            "distancia": "3.6 km"
-        }
-### Get Igrejas [GET] [/v1/app/igreja/:origem/:cidade]
-    #### Exemplo url [host/v1/app/igreja/-9.652532,-35.735195/Maceió]
-
-+ Response 201 (application/json)
-
-    + Body
-
-        [
-            {
-                "id": 7,
-                "nome": "Roberto",
-                "nome_responsavel": "dasdasdas",
-                "cnpj": "123456789",
-                "email": "rm@gmail.com",
-                "ativo": true,
-                "telefone": "123123213",
-                "createdAt": "2017-06-18T12:57:23.290Z",
-                "updatedAt": "2017-06-18T12:57:23.290Z",
-                "endereco": {
-                    "id": 3,
-                    "cep": "123456789",
-                    "logradouro": "das",
-                    "complemento": "das",
-                    "bairro": "dsa",
-                    "cidade": "Maceió",
-                    "estado": "das",
-                    "numero": "asd",
-                    "longitude": " -35.722786",
-                    "latitude": "-9.668861",
-                    "createdAt": "2017-06-18T12:57:23.438Z",
-                    "updatedAt": "2017-06-18T12:57:23.438Z",
-                    "usuarioId": 7
-                },
-                "distancia": "3.6 km"
-            },
             {
                 "id": 8,
                 "nome": "Robertooo",
@@ -252,5 +190,68 @@ HOST: http://localhost:8079/palato/
                 },
                 "distancia": "3.6 km"
             }
-        ]
+            
+### Get Igrejas [GET] [/v1/app/igreja/:origem/:cidade]
+    #### Exemplo url [host/v1/app/igreja/-9.652532,-35.735195/Maceió]
+
++ Response 201 (application/json)
+
+        + Body
+
+            [
+                {
+                    "id": 7,
+                    "nome": "Roberto",
+                    "nome_responsavel": "dasdasdas",
+                    "cnpj": "123456789",
+                    "email": "rm@gmail.com",
+                    "ativo": true,
+                    "telefone": "123123213",
+                    "createdAt": "2017-06-18T12:57:23.290Z",
+                    "updatedAt": "2017-06-18T12:57:23.290Z",
+                    "endereco": {
+                        "id": 3,
+                        "cep": "123456789",
+                        "logradouro": "das",
+                        "complemento": "das",
+                        "bairro": "dsa",
+                        "cidade": "Maceió",
+                        "estado": "das",
+                        "numero": "asd",
+                        "longitude": " -35.722786",
+                        "latitude": "-9.668861",
+                        "createdAt": "2017-06-18T12:57:23.438Z",
+                        "updatedAt": "2017-06-18T12:57:23.438Z",
+                        "usuarioId": 7
+                    },
+                    "distancia": "3.6 km"
+                },
+                {
+                    "id": 8,
+                    "nome": "Robertooo",
+                    "nome_responsavel": "dasdasdas",
+                    "cnpj": "123456789",
+                    "email": "rm@gmail.com",
+                    "ativo": true,
+                    "telefone": "123123213",
+                    "createdAt": "2017-06-18T12:57:42.366Z",
+                    "updatedAt": "2017-06-18T14:03:57.527Z",
+                    "endereco": {
+                        "id": 4,
+                        "cep": "123456789",
+                        "logradouro": "dddsadsadas",
+                        "complemento": "das",
+                        "bairro": "dsa",
+                        "cidade": "Maceió",
+                        "estado": "das",
+                        "numero": "asd",
+                        "longitude": " -35.722786",
+                        "latitude": "-9.668861",
+                        "createdAt": "2017-06-18T12:57:42.507Z",
+                        "updatedAt": "2017-06-18T14:03:57.869Z",
+                        "usuarioId": 8
+                    },
+                    "distancia": "3.6 km"
+                }
+            ]
 ###
