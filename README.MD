@@ -1,5 +1,5 @@
 FORMAT: 1A
-HOST: http://localhost:8079/palato/
+HOST: http://localhost:3000/
 
 # AHoraDaMissa API
 
@@ -40,6 +40,7 @@ HOST: http://localhost:8079/palato/
 ### Get Igrejas [GET]  [/v1/web/igreja]
 
 + Response 200 (application/json)
+
         + Body
         [
             {
@@ -190,7 +191,7 @@ HOST: http://localhost:8079/palato/
                 },
                 "distancia": "3.6 km"
             }
-            
+
 ### Get Igrejas [GET] [/v1/app/igreja/:origem/:cidade]
     #### Exemplo url [host/v1/app/igreja/-9.652532,-35.735195/Maceió]
 
