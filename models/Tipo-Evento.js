@@ -5,8 +5,10 @@ const TipoEvento = db.define('tipo_evento', {
     'nome': {
         type: Sequelize.STRING,
         validate: {
-            args: [true],
-            msg : "Campo nome Vazio"
+            notEmpty: {
+                args: [true],
+                msg: "Campo nome Vazio"
+            }
         }
     }
 })

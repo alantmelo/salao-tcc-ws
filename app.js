@@ -8,6 +8,7 @@ const db = require('./db');
 const usuarioRoutes = require('./routes/usuario');
 const usuarioAppRoutes = require('./routes/usuario.app');
 const tipoEventoRoutes = require('./routes/tipo-evento');
+const eventoRoutes = require('./routes/evento');
 
 const apiVersion = "/v1";
 const apiWeb = apiVersion + "/web/";
@@ -25,6 +26,7 @@ app.use(Express.static(Path.join(__dirname, 'public')));
 app.use(apiWeb + 'igreja', usuarioRoutes);
 app.use(apiApp + 'igreja', usuarioAppRoutes);
 app.use(apiWeb + 'tipo-evento', tipoEventoRoutes);
+app.use(apiWeb + 'evento', eventoRoutes);
 //Rota default
 app.use('*', (req, res, next) => {
     res.send("Pagina Default");

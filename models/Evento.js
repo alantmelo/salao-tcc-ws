@@ -72,15 +72,6 @@ const Evento = db.define('evento', {
                 msg: "Campo Link Vazio"
             }
         }
-    },
-    "data_termino": {
-        type: Sequelize.DATE,
-        validate: {
-            notEmpty: {
-                args: [true],
-                msg: "Campo Nome do Evento Vazio"
-            }
-        }
     }
 });
 
