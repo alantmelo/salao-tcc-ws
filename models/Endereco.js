@@ -21,13 +21,6 @@ const Endereco = db.define('endereco', {
     },
     'complemento': {
         type: Sequelize.STRING,
-        validate: {
-            notEmpty: {
-                args: [true],
-                msg: "Campo Logradouro Vazio"
-            }
-        }
-
     },
     'bairro': {
         type: Sequelize.STRING,

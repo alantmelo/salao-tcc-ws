@@ -7,7 +7,10 @@ module.exports = db;
 
 
 const Usuario = require('./models/Usuario');
+const Evento = require('./models/Evento');
 const Endereco = require('./models/Endereco');
 
 Usuario.hasOne(Endereco);
+// Evento.hasOne(Endereco);
+
 
