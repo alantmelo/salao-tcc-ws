@@ -9,6 +9,8 @@ const usuarioRoutes = require('./routes/usuario');
 const usuarioAppRoutes = require('./routes/usuario.app');
 const tipoEventoRoutes = require('./routes/tipo-evento');
 const eventoRoutes = require('./routes/evento');
+const eventoAppRoutes = require('./routes/evento.app');
+const padreRoutes = require('./routes/padre');
 
 const apiVersion = "/v1";
 const apiWeb = apiVersion + "/web/";
@@ -23,10 +25,16 @@ app.use(BodyParser.urlencoded({ extended: true }));
 app.use(Express.static(Path.join(__dirname, 'public')));
 
 //Rotas da api
+//Igreja || Usuario
 app.use(apiWeb + 'igreja', usuarioRoutes);
 app.use(apiApp + 'igreja', usuarioAppRoutes);
+//Tipo Evento
 app.use(apiWeb + 'tipo-evento', tipoEventoRoutes);
+// Evento
 app.use(apiWeb + 'evento', eventoRoutes);
+app.use(apiApp + 'evento', eventoAppRoutes);
+//Padre
+app.use(apiWeb + 'padre', padreRoutes);
 //Rota default
 app.use('*', (req, res, next) => {
     res.send("Pagina Default");

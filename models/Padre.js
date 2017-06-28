@@ -1,9 +1,9 @@
 const Sequelize = require('sequelize');
-const db = require('./db');
+const db = require('../db');
 const Padre = db.define('padre', {
     'nome': {
         type: Sequelize.STRING,
-        validade: {
+        validate: {
             notEmpty: {
                 args: [true],
                 msg: "Favor inserir campo nome"

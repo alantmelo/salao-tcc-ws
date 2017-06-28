@@ -97,7 +97,7 @@ HOST: http://localhost:3000/
             }
         ]
 
-### Inserir Igreja [POST] [PUT] [/v1/web/igreja]
+### Inserir Igreja [POST] [/v1/web/igreja] [PUT] [/v1/web/igreja/:id]
 
 + Request (application/json)
 
@@ -255,4 +255,100 @@ HOST: http://localhost:3000/
                     "distancia": "3.6 km"
                 }
             ]
-###
+
+## Padre [WEB] [/v1/web/padre]
+### Get Padre [GET]  [/v1/web/padre/:id]
+
++ Response 200 (application/json)
+
+        + Body
+
+            {
+                "id": 4,
+                "nome": "das",
+                "createdAt": "2017-06-28T23:15:36.840Z",
+                "updatedAt": "2017-06-28T23:15:36.840Z",
+                "usuarioId": 1
+            }
+
+### Get Padres [GET]  [/v1/web/padre]
+
++ Response 200 (application/json)
+
+        + Body
+        [
+            {
+                "id": 1,
+                "nome": null,
+                "createdAt": "2017-06-28T23:08:10.835Z",
+                "updatedAt": "2017-06-28T23:08:10.835Z",
+                "usuarioId": null
+            },
+            {
+                "id": 3,
+                "nome": "",
+                "createdAt": "2017-06-28T23:09:47.147Z",
+                "updatedAt": "2017-06-28T23:09:47.147Z",
+                "usuarioId": 1
+            },
+            {
+                "id": 4,
+                "nome": "das",
+                "createdAt": "2017-06-28T23:15:36.840Z",
+                "updatedAt": "2017-06-28T23:15:36.840Z",
+                "usuarioId": 1
+            }
+        ]
+
+### Get Padres By Id Igreja [GET]  [/v1/web/padre/byigreja/:id]
+
++ Response 200 (application/json)
+
+        + Body
+        [
+            {
+                "id": 3,
+                "nome": "",
+                "createdAt": "2017-06-28T23:09:47.147Z",
+                "updatedAt": "2017-06-28T23:09:47.147Z",
+                "usuarioId": 1
+            },
+            {
+                "id": 4,
+                "nome": "das",
+                "createdAt": "2017-06-28T23:15:36.840Z",
+                "updatedAt": "2017-06-28T23:15:36.840Z",
+                "usuarioId": 1
+            }
+        ]
+
+### Inserir Padre [POST] [/v1/web/padre] [PUT] [/v1/web/padre/:id]
+
++ Request (application/json)
+
+        {
+            "padre" : {
+            "nome" : "dda",
+            "usuarioId": 1
+            }
+        }
+
++ Response 201 (application/json)
+
+        + Body
+    
+           {
+                "id": 5,
+                "nome": "dda",
+                "usuarioId": 1,
+                "updatedAt": "2017-06-28T23:47:36.278Z",
+                "createdAt": "2017-06-28T23:47:36.278Z"
+            }
+
+### Deletar Padre [DELETE] [/v1/web/padre/:id]
+
++ Response 201 (application/json)
+
+        + Body
+    
+           "Padre deletado com sucesso"

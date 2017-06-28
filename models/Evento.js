@@ -72,6 +72,9 @@ const Evento = db.define('evento', {
                 msg: "Campo Link Vazio"
             }
         }
+    },
+    'distancia': {
+        type: Sequelize.VIRTUAL
     }
 });
 
