@@ -11,6 +11,7 @@ const tipoEventoRoutes = require('./routes/tipo-evento');
 const eventoRoutes = require('./routes/evento');
 const eventoAppRoutes = require('./routes/evento.app');
 const padreRoutes = require('./routes/padre');
+const tipoMissaRoutes = require('./routes/tipo-missa');
 
 const apiVersion = "/v1";
 const apiWeb = apiVersion + "/web/";
@@ -35,6 +36,8 @@ app.use(apiWeb + 'evento', eventoRoutes);
 app.use(apiApp + 'evento', eventoAppRoutes);
 //Padre
 app.use(apiWeb + 'padre', padreRoutes);
+//Tipo Missa
+app.use(apiWeb + 'tipo-missa', tipoMissaRoutes);
 //Rota default
 app.use('*', (req, res, next) => {
     res.send("Pagina Default");

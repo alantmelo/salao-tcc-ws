@@ -103,24 +103,24 @@ HOST: http://localhost:3000/
 
         {
             "usuario" : {
-            "nome":"Robertooo",
-            "nome_responsavel": "dasdasdas",
-            "cnpj":"123456789",
-            "email" :"rm@gmail.com",
-            "ativo" :false,
-            "telefone":"123123213",
-            "senha":"123564",
-            "endereco" : {
-                "cep":"123456789",
-                "logradouro":"dddsadsadas",
-                "complemento":"das",
-                "bairro":"dsa",
-                "cidade":"das",
-                "estado":"das",
-                "numero":"asd",
-                "longitude":"asd",
-                "latitude":"das"
-                }
+                "nome":"Robertooo",
+                "nome_responsavel": "dasdasdas",
+                "cnpj":"123456789",
+                "email" :"rm@gmail.com",
+                "ativo" :false,
+                "telefone":"123123213",
+                "senha":"123564",
+                "endereco" : {
+                    "cep":"123456789",
+                    "logradouro":"dddsadsadas",
+                    "complemento":"das",
+                    "bairro":"dsa",
+                    "cidade":"das",
+                    "estado":"das",
+                    "numero":"asd",
+                    "longitude":"asd",
+                    "latitude":"das"
+                    }
             }
         }
 
@@ -352,3 +352,66 @@ HOST: http://localhost:3000/
         + Body
     
            "Padre deletado com sucesso"
+
+## Tipo Tipo Missa [WEB] [/v1/web/tipomissa]
+### Get Tipo Missa [GET]  [/v1/web/tipomissa/:id]
+
++ Response 200 (application/json)
+
+        + Body
+
+            {
+                "id": 1,
+                "nome": "Missa",
+                "createdAt": "2017-06-29T00:31:07.959Z",
+                "updatedAt": "2017-06-29T00:31:07.959Z"
+            }
+
+### Get Tipo Missas [GET]  [/v1/web/tipomissa]
+
++ Response 200 (application/json)
+
+        + Body
+        [
+            {
+                "id": 1,
+                "nome": "Missa",
+                "createdAt": "2017-06-29T00:31:07.959Z",
+                "updatedAt": "2017-06-29T00:31:07.959Z"
+            },
+            {
+                "id": 2,
+                "nome": "Missa",
+                "createdAt": "2017-06-29T00:31:12.302Z",
+                "updatedAt": "2017-06-29T00:31:12.302Z"
+            }
+        ]
+
+### Inserir Tipo Missa [POST] [/v1/web/tipomissa] [PUT] [/v1/web/tipomissa/:id]
+
++ Request (application/json)
+
+        {
+            "tipo_missa" : {
+                "nome": "Missa"
+            }
+        }
+
++ Response 201 (application/json)
+
+        + Body
+    
+           {
+                "id": 5,
+                "nome": "Missa",
+                "updatedAt": "2017-06-29T00:36:58.652Z",
+                "createdAt": "2017-06-29T00:36:58.652Z"
+            }
+
+### Deletar Tipo Missa [DELETE] [/v1/web/tipomissa/:id]
+
++ Response 201 (application/json)
+
+        + Body
+    
+           "Tipo Missa deletado com sucesso"
