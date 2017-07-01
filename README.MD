@@ -415,3 +415,423 @@ HOST: http://localhost:3000/
         + Body
     
            "Tipo Missa deletado com sucesso"
+
+## Missa [WEB] [/v1/web/missa]
+### Get Missa [GET]  [/v1/web/missa/:id]
+
++ Response 200 (application/json)
+
+        + Body
+
+            {
+                "id": 1,
+                "hora": "20:00",
+                "repete": true,
+                "createdAt": "2017-06-30T17:07:18.455Z",
+                "updatedAt": "2017-06-30T17:07:18.455Z",
+                "usuarioId": 1,
+                "padreId": 4,
+                "tipoMissaId": 1,
+                "horario": {
+                    "id": 12,
+                    "segunda": true,
+                    "terca": true,
+                    "quarta": true,
+                    "quinta": false,
+                    "sexta": true,
+                    "sabado": true,
+                    "domingo": true,
+                    "createdAt": "2017-06-30T17:07:19.815Z",
+                    "updatedAt": "2017-06-30T17:07:19.815Z",
+                    "missaId": 1
+                },
+                "usuario": {
+                    "id": 1,
+                    "nome": "Robertooo",
+                    "nome_responsavel": "dasdasdas",
+                    "cnpj": "123456789",
+                    "email": "rm@gmail.com",
+                    "ativo": true,
+                    "telefone": "123123213",
+                    "createdAt": "2017-06-19T02:01:21.787Z",
+                    "updatedAt": "2017-06-19T02:01:21.787Z"
+                },
+                "padre": {
+                    "id": 4,
+                    "nome": "das",
+                    "createdAt": "2017-06-28T23:15:36.840Z",
+                    "updatedAt": "2017-06-28T23:15:36.840Z",
+                    "usuarioId": 1
+                },
+                "tipo_missa": {
+                    "id": 1,
+                    "nome": "Missa",
+                    "createdAt": "2017-06-29T00:31:07.959Z",
+                    "updatedAt": "2017-06-29T00:31:07.959Z"
+                }
+            }
+
+### Get Missas [GET]  [/v1/web/missa]
+
++ Response 200 (application/json)
+
+        + Body
+        [
+            {
+                "id": 1,
+                "hora": "20:00",
+                "repete": true,
+                "createdAt": "2017-06-30T17:07:18.455Z",
+                "updatedAt": "2017-06-30T17:07:18.455Z",
+                "usuarioId": 1,
+                "padreId": 4,
+                "tipoMissaId": 1,
+                "horario": {
+                    "id": 12,
+                    "segunda": true,
+                    "terca": true,
+                    "quarta": true,
+                    "quinta": false,
+                    "sexta": true,
+                    "sabado": true,
+                    "domingo": true,
+                    "createdAt": "2017-06-30T17:07:19.815Z",
+                    "updatedAt": "2017-06-30T17:07:19.815Z",
+                    "missaId": 1
+                },
+                "usuario": {
+                    "id": 1,
+                    "nome": "Robertooo",
+                    "nome_responsavel": "dasdasdas",
+                    "cnpj": "123456789",
+                    "email": "rm@gmail.com",
+                    "ativo": true,
+                    "telefone": "123123213",
+                    "createdAt": "2017-06-19T02:01:21.787Z",
+                    "updatedAt": "2017-06-19T02:01:21.787Z"
+                },
+                "padre": {
+                    "id": 4,
+                    "nome": "das",
+                    "createdAt": "2017-06-28T23:15:36.840Z",
+                    "updatedAt": "2017-06-28T23:15:36.840Z",
+                    "usuarioId": 1
+                },
+                "tipo_missa": {
+                    "id": 1,
+                    "nome": "Missa",
+                    "createdAt": "2017-06-29T00:31:07.959Z",
+                    "updatedAt": "2017-06-29T00:31:07.959Z"
+                }
+            },
+            {
+                "id": 2,
+                "hora": "20:00",
+                "repete": true,
+                "createdAt": "2017-06-30T17:08:23.878Z",
+                "updatedAt": "2017-06-30T17:08:23.878Z",
+                "usuarioId": 1,
+                "padreId": 4,
+                "tipoMissaId": 1,
+                "horario": {
+                    "id": 13,
+                    "segunda": true,
+                    "terca": true,
+                    "quarta": true,
+                    "quinta": false,
+                    "sexta": true,
+                    "sabado": true,
+                    "domingo": true,
+                    "createdAt": "2017-06-30T17:08:24.008Z",
+                    "updatedAt": "2017-06-30T17:08:24.008Z",
+                    "missaId": 2
+                },
+                "usuario": {
+                    "id": 1,
+                    "nome": "Robertooo",
+                    "nome_responsavel": "dasdasdas",
+                    "cnpj": "123456789",
+                    "email": "rm@gmail.com",
+                    "ativo": true,
+                    "telefone": "123123213",
+                    "createdAt": "2017-06-19T02:01:21.787Z",
+                    "updatedAt": "2017-06-19T02:01:21.787Z"
+                },
+                "padre": {
+                    "id": 4,
+                    "nome": "das",
+                    "createdAt": "2017-06-28T23:15:36.840Z",
+                    "updatedAt": "2017-06-28T23:15:36.840Z",
+                    "usuarioId": 1
+                },
+                "tipo_missa": {
+                    "id": 1,
+                    "nome": "Missa",
+                    "createdAt": "2017-06-29T00:31:07.959Z",
+                    "updatedAt": "2017-06-29T00:31:07.959Z"
+                }
+            }
+        ]
+
+### Inserir Missa [POST] [/v1/web/missa] [PUT] [/v1/web/missa/:id]
+
++ Request (application/json)
+
+        { 
+            "missa" : {
+                "tipoMissaId": 1,
+                "hora" : "20:00",
+                "usuarioId": 1,
+                "repete": true, 
+                "padreId" : 4,
+                "horario" : {
+                    "segunda" : true,
+                    "terca"  : true, 
+                    "quarta" : true, 
+                    "quinta" : false, 
+                    "sexta" : true, 
+                    "sabado" : true,
+                    "domingo" : true
+                }
+            }
+        }
+
++ Response 201 (application/json)
+
+        + Body
+    
+           {
+                "id": 3,
+                "tipoMissaId": 1,
+                "hora": "20:00",
+                "usuarioId": 1,
+                "repete": true,
+                "padreId": 4,
+                "horario": {
+                    "id": 14,
+                    "segunda": true,
+                    "terca": true,
+                    "quarta": true,
+                    "quinta": false,
+                    "sexta": true,
+                    "sabado": true,
+                    "domingo": true,
+                    "missaId": 3,
+                    "updatedAt": "2017-07-01T04:14:48.145Z",
+                    "createdAt": "2017-07-01T04:14:48.145Z"
+                },
+                "updatedAt": "2017-07-01T04:14:48.098Z",
+                "createdAt": "2017-07-01T04:14:48.098Z"
+            }
+
+
+## Missa [APP] [/v1/app/missa]
+### Get Missa [GET] [/v1/app/missa/id/:id/:origem(latitude,longitude)]  
+    #### Exemplo url [host/v1/app/missa/id/8/-9.652532,-35.735195/]
+
++ Response 201 (application/json)
+
+        + Body
+
+            {
+                "id": 1,
+                "hora": "20:00",
+                "repete": true,
+                "createdAt": "2017-06-30T17:07:18.455Z",
+                "updatedAt": "2017-06-30T17:07:18.455Z",
+                "usuarioId": 1,
+                "padreId": 4,
+                "tipoMissaId": 1,
+                "horario": {
+                    "id": 12,
+                    "segunda": true,
+                    "terca": true,
+                    "quarta": true,
+                    "quinta": false,
+                    "sexta": true,
+                    "sabado": true,
+                    "domingo": true,
+                    "createdAt": "2017-06-30T17:07:19.815Z",
+                    "updatedAt": "2017-06-30T17:07:19.815Z",
+                    "missaId": 1
+                },
+                "usuario": {
+                    "id": 1,
+                    "nome": "Robertooo",
+                    "nome_responsavel": "dasdasdas",
+                    "cnpj": "123456789",
+                    "email": "rm@gmail.com",
+                    "ativo": true,
+                    "telefone": "123123213",
+                    "createdAt": "2017-06-19T02:01:21.787Z",
+                    "updatedAt": "2017-06-19T02:01:21.787Z",
+                    "endereco": {
+                        "id": 1,
+                        "cep": "123456789",
+                        "logradouro": "dddas",
+                        "complemento": "das",
+                        "bairro": "dsa",
+                        "cidade": "Maceió",
+                        "estado": "das",
+                        "numero": "asd",
+                        "longitude": "-35.704802",
+                        "latitude": "-9.645770",
+                        "createdAt": "2017-06-19T02:01:21.929Z",
+                        "updatedAt": "2017-06-19T02:01:21.929Z",
+                        "usuarioId": 1,
+                        "eventoId": null
+                    }
+                },
+                "padre": {
+                    "id": 4,
+                    "nome": "das",
+                    "createdAt": "2017-06-28T23:15:36.840Z",
+                    "updatedAt": "2017-06-28T23:15:36.840Z",
+                    "usuarioId": 1
+                },
+                "tipo_missa": {
+                    "id": 1,
+                    "nome": "Missa",
+                    "createdAt": "2017-06-29T00:31:07.959Z",
+                    "updatedAt": "2017-06-29T00:31:07.959Z"
+                },
+                "distancia": "4.1 km"
+            }
+
+### Get Missas [GET] [/v1/app/missa/:origem/:cidade]
+    #### Exemplo url [host/v1/app/missa/-9.652532,-35.735195/Maceió]
+
++ Response 201 (application/json)
+
+        + Body
+
+            [
+                {
+                    "id": 1,
+                    "hora": "20:00",
+                    "repete": true,
+                    "createdAt": "2017-06-30T17:07:18.455Z",
+                    "updatedAt": "2017-06-30T17:07:18.455Z",
+                    "usuarioId": 1,
+                    "padreId": 4,
+                    "tipoMissaId": 1,
+                    "horario": {
+                        "id": 12,
+                        "segunda": true,
+                        "terca": true,
+                        "quarta": true,
+                        "quinta": false,
+                        "sexta": true,
+                        "sabado": true,
+                        "domingo": true,
+                        "createdAt": "2017-06-30T17:07:19.815Z",
+                        "updatedAt": "2017-06-30T17:07:19.815Z",
+                        "missaId": 1
+                    },
+                    "usuario": {
+                        "id": 1,
+                        "nome": "Robertooo",
+                        "nome_responsavel": "dasdasdas",
+                        "cnpj": "123456789",
+                        "email": "rm@gmail.com",
+                        "ativo": true,
+                        "telefone": "123123213",
+                        "createdAt": "2017-06-19T02:01:21.787Z",
+                        "updatedAt": "2017-06-19T02:01:21.787Z",
+                        "endereco": {
+                            "id": 1,
+                            "cep": "123456789",
+                            "logradouro": "dddas",
+                            "complemento": "das",
+                            "bairro": "dsa",
+                            "cidade": "Rio",
+                            "estado": "das",
+                            "numero": "asd",
+                            "longitude": "-35.704802",
+                            "latitude": "-9.645770",
+                            "createdAt": "2017-06-19T02:01:21.929Z",
+                            "updatedAt": "2017-06-19T02:01:21.929Z",
+                            "usuarioId": 1,
+                            "eventoId": null
+                        }
+                    },
+                    "padre": {
+                        "id": 4,
+                        "nome": "das",
+                        "createdAt": "2017-06-28T23:15:36.840Z",
+                        "updatedAt": "2017-06-28T23:15:36.840Z",
+                        "usuarioId": 1
+                    },
+                    "tipo_missa": {
+                        "id": 1,
+                        "nome": "Missa",
+                        "createdAt": "2017-06-29T00:31:07.959Z",
+                        "updatedAt": "2017-06-29T00:31:07.959Z"
+                    },
+                    "distancia": "4.1 km"
+                },
+                {
+                    "id": 2,
+                    "hora": "20:00",
+                    "repete": true,
+                    "createdAt": "2017-06-30T17:08:23.878Z",
+                    "updatedAt": "2017-06-30T17:08:23.878Z",
+                    "usuarioId": 1,
+                    "padreId": 4,
+                    "tipoMissaId": 1,
+                    "horario": {
+                        "id": 13,
+                        "segunda": true,
+                        "terca": true,
+                        "quarta": true,
+                        "quinta": false,
+                        "sexta": true,
+                        "sabado": true,
+                        "domingo": true,
+                        "createdAt": "2017-06-30T17:08:24.008Z",
+                        "updatedAt": "2017-06-30T17:08:24.008Z",
+                        "missaId": 2
+                    },
+                    "usuario": {
+                        "id": 1,
+                        "nome": "Robertooo",
+                        "nome_responsavel": "dasdasdas",
+                        "cnpj": "123456789",
+                        "email": "rm@gmail.com",
+                        "ativo": true,
+                        "telefone": "123123213",
+                        "createdAt": "2017-06-19T02:01:21.787Z",
+                        "updatedAt": "2017-06-19T02:01:21.787Z",
+                        "endereco": {
+                            "id": 1,
+                            "cep": "123456789",
+                            "logradouro": "dddas",
+                            "complemento": "das",
+                            "bairro": "dsa",
+                            "cidade": "Rio",
+                            "estado": "das",
+                            "numero": "asd",
+                            "longitude": "-35.704802",
+                            "latitude": "-9.645770",
+                            "createdAt": "2017-06-19T02:01:21.929Z",
+                            "updatedAt": "2017-06-19T02:01:21.929Z",
+                            "usuarioId": 1,
+                            "eventoId": null
+                        }
+                    },
+                    "padre": {
+                        "id": 4,
+                        "nome": "das",
+                        "createdAt": "2017-06-28T23:15:36.840Z",
+                        "updatedAt": "2017-06-28T23:15:36.840Z",
+                        "usuarioId": 1
+                    },
+                    "tipo_missa": {
+                        "id": 1,
+                        "nome": "Missa",
+                        "createdAt": "2017-06-29T00:31:07.959Z",
+                        "updatedAt": "2017-06-29T00:31:07.959Z"
+                    },
+                    "distancia": "4.1 km"
+                }
+            ]
