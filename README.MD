@@ -835,3 +835,350 @@ HOST: http://localhost:3000/
                     "distancia": "4.1 km"
                 }
             ]
+
+## Evento [WEB] [/v1/web/evento]
+### Get Evento [GET]  [/v1/web/evento/:id]
+
++ Response 200 (application/json)
+
+        + Body
+
+            {
+                "id": 4,
+                "nome_local": "Robertooo",
+                "nome_evento": "dasdasdas",
+                "detalhe": "123456789",
+                "foto": "dasdasdas3_7_2017.jpg",
+                "data_inicio": "2017-09-01T00:00:00.000Z",
+                "data_termino": "2017-09-02T00:00:00.000Z",
+                "preco": 12.5,
+                "link": "1235dsadasdsads64",
+                "createdAt": "2017-07-03T21:57:08.823Z",
+                "updatedAt": "2017-07-03T21:57:08.823Z",
+                "tipoEventoId": 1,
+                "usuarioId": 1,
+                "endereco": {
+                    "id": 23,
+                    "cep": "123456789",
+                    "logradouro": "dddsadsadas",
+                    "complemento": "das",
+                    "bairro": "dsa",
+                    "cidade": "Rio",
+                    "estado": "das",
+                    "numero": "asd",
+                    "longitude": "-35.704802",
+                    "latitude": "-9.645770",
+                    "createdAt": "2017-07-03T21:57:08.990Z",
+                    "updatedAt": "2017-07-03T21:57:08.990Z",
+                    "usuarioId": null,
+                    "eventoId": 4
+                },
+                "usuario": {
+                    "id": 1,
+                    "nome": "Robertooo",
+                    "nome_responsavel": "dasdasdas",
+                    "cnpj": "123456789",
+                    "email": "rm@gmail.com",
+                    "ativo": true,
+                    "telefone": "123123213",
+                    "createdAt": "2017-06-19T02:01:21.787Z",
+                    "updatedAt": "2017-06-19T02:01:21.787Z"
+                },
+                "tipo_evento": {
+                    "id": 1,
+                    "nome": "Show2",
+                    "createdAt": "2017-06-19T02:05:19.450Z",
+                    "updatedAt": "2017-06-19T02:05:19.450Z"
+                }
+            }
+
+### Get Eventos [GET]  [/v1/web/evento]
+
++ Response 200 (application/json)
+
+        + Body
+        
+            [
+                {
+                    "id": 4,
+                    "nome_local": "Robertooo",
+                    "nome_evento": "dasdasdas",
+                    "detalhe": "123456789",
+                    "foto": "dasdasdas3_7_2017.jpg",
+                    "data_inicio": "2017-09-01T00:00:00.000Z",
+                    "data_termino": "2017-09-02T00:00:00.000Z",
+                    "preco": 12.5,
+                    "link": "1235dsadasdsads64",
+                    "createdAt": "2017-07-03T21:57:08.823Z",
+                    "updatedAt": "2017-07-03T21:57:08.823Z",
+                    "tipoEventoId": 1,
+                    "usuarioId": 1,
+                    "endereco": {
+                        "id": 23,
+                        "cep": "123456789",
+                        "logradouro": "dddsadsadas",
+                        "complemento": "das",
+                        "bairro": "dsa",
+                        "cidade": "Rio",
+                        "estado": "das",
+                        "numero": "asd",
+                        "longitude": "-35.704802",
+                        "latitude": "-9.645770",
+                        "createdAt": "2017-07-03T21:57:08.990Z",
+                        "updatedAt": "2017-07-03T21:57:08.990Z",
+                        "usuarioId": null,
+                        "eventoId": 4
+                    },
+                    "usuario": {
+                        "id": 1,
+                        "nome": "Robertooo",
+                        "nome_responsavel": "dasdasdas",
+                        "cnpj": "123456789",
+                        "email": "rm@gmail.com",
+                        "ativo": true,
+                        "telefone": "123123213",
+                        "createdAt": "2017-06-19T02:01:21.787Z",
+                        "updatedAt": "2017-06-19T02:01:21.787Z"
+                    },
+                    "tipo_evento": {
+                        "id": 1,
+                        "nome": "Show2",
+                        "createdAt": "2017-06-19T02:05:19.450Z",
+                        "updatedAt": "2017-06-19T02:05:19.450Z"
+                    }
+                },
+                {
+                    "id": 3,
+                    "nome_local": "Robertooo",
+                    "nome_evento": "dasdasdas",
+                    "detalhe": "123456789",
+                    "foto": "dasdasdas1_7_2017.jpg",
+                    "data_inicio": "2007-01-01T00:00:00.000Z",
+                    "data_termino": "2007-02-02T00:00:00.000Z",
+                    "preco": 12.5,
+                    "link": "1235dsadasdsads64",
+                    "createdAt": "2017-07-01T04:36:05.837Z",
+                    "updatedAt": "2017-07-01T04:36:05.837Z",
+                    "tipoEventoId": 1,
+                    "usuarioId": 1,
+                    "endereco": {
+                        "id": 22,
+                        "cep": "123456789",
+                        "logradouro": "dddsadsadas",
+                        "complemento": "das",
+                        "bairro": "dsa",
+                        "cidade": "Rio",
+                        "estado": "das",
+                        "numero": "asd",
+                        "longitude": "-35.704802",
+                        "latitude": "-9.645770",
+                        "createdAt": "2017-07-01T04:36:05.864Z",
+                        "updatedAt": "2017-07-01T04:36:05.864Z",
+                        "usuarioId": null,
+                        "eventoId": 3
+                    },
+                    "usuario": {
+                        "id": 1,
+                        "nome": "Robertooo",
+                        "nome_responsavel": "dasdasdas",
+                        "cnpj": "123456789",
+                        "email": "rm@gmail.com",
+                        "ativo": true,
+                        "telefone": "123123213",
+                        "createdAt": "2017-06-19T02:01:21.787Z",
+                        "updatedAt": "2017-06-19T02:01:21.787Z"
+                    },
+                    "tipo_evento": {
+                        "id": 1,
+                        "nome": "Show2",
+                        "createdAt": "2017-06-19T02:05:19.450Z",
+                        "updatedAt": "2017-06-19T02:05:19.450Z"
+                    }
+                }
+            ]
+
+### Inserir Evento [POST] [/v1/web/evento] [PUT] [/v1/web/evento/:id]
++ Request (application/json)
+
+        {
+            "evento" : {
+            "nome_local":"Robertooo",
+            "nome_evento": "dasdasdas",
+            "detalhe":"123456789",
+            "foto" : BASE64,
+            "data_inicio" :"2007-01-01",
+            "data_termino" :"2007-02-02",
+            "preco": 12.50,
+            "link":"1235dsadasdsads64",
+            "tipoEventoId" : 1,
+            "usuarioId" : 1,
+            "endereco" : {
+                "cep":"123456789",
+                "logradouro":"dddsadsadas",
+                "complemento":"das",
+                "bairro":"dsa",
+                "cidade":"das",
+                "estado":"das",
+                "numero":"asd",
+                "longitude":"asd",
+                "latitude":"das"
+                }
+            }
+        }
+
++ Response 201 (application/json)
+
+        + Body
+    
+           {
+                "id": 5,
+                "nome_local": "Robertooo",
+                "nome_evento": "dasdasdas",
+                "detalhe": "123456789",
+                "foto": "dasdasdas4_7_2017.jpg",
+                "data_inicio": "2007-01-01T00:00:00.000Z",
+                "data_termino": "2007-02-02T00:00:00.000Z",
+                "preco": 12.5,
+                "link": "1235dsadasdsads64",
+                "tipoEventoId": 1,
+                "usuarioId": 1,
+                "endereco": {
+                    "id": 24,
+                    "cep": "123456789",
+                    "logradouro": "dddsadsadas",
+                    "complemento": "das",
+                    "bairro": "dsa",
+                    "cidade": "das",
+                    "estado": "das",
+                    "numero": "asd",
+                    "longitude": "asd",
+                    "latitude": "das",
+                    "eventoId": 5,
+                    "updatedAt": "2017-07-04T23:43:54.062Z",
+                    "createdAt": "2017-07-04T23:43:54.062Z",
+                    "usuarioId": null
+                },
+                "updatedAt": "2017-07-04T23:43:53.725Z",
+                "createdAt": "2017-07-04T23:43:53.725Z"
+            }
+
+
+## Evento [APP] [/v1/app/evento]
+### Get Evento [GET] [/v1/app/evento/id/:id/:origem(latitude,longitude)]  
+    #### Exemplo url [host/v1/app/evento/id/4/-9.652532,-35.735195/]
+
++ Response 201 (application/json)
+
+        + Body
+
+            {
+                "id": 4,
+                "nome_local": "Robertooo",
+                "nome_evento": "dasdasdas",
+                "detalhe": "123456789",
+                "foto": "dasdasdas3_7_2017.jpg",
+                "data_inicio": "2017-09-01T00:00:00.000Z",
+                "data_termino": "2017-09-02T00:00:00.000Z",
+                "preco": 12.5,
+                "link": "1235dsadasdsads64",
+                "createdAt": "2017-07-03T21:57:08.823Z",
+                "updatedAt": "2017-07-03T21:57:08.823Z",
+                "tipoEventoId": 1,
+                "usuarioId": 1,
+                "endereco": {
+                    "id": 23,
+                    "cep": "123456789",
+                    "logradouro": "dddsadsadas",
+                    "complemento": "das",
+                    "bairro": "dsa",
+                    "cidade": "Rio",
+                    "estado": "das",
+                    "numero": "asd",
+                    "longitude": "-35.704802",
+                    "latitude": "-9.645770",
+                    "createdAt": "2017-07-03T21:57:08.990Z",
+                    "updatedAt": "2017-07-03T21:57:08.990Z",
+                    "usuarioId": null,
+                    "eventoId": 4
+                },
+                "usuario": {
+                    "id": 1,
+                    "nome": "Robertooo",
+                    "nome_responsavel": "dasdasdas",
+                    "cnpj": "123456789",
+                    "email": "rm@gmail.com",
+                    "ativo": true,
+                    "telefone": "123123213",
+                    "createdAt": "2017-06-19T02:01:21.787Z",
+                    "updatedAt": "2017-06-19T02:01:21.787Z"
+                },
+                "tipo_evento": {
+                    "id": 1,
+                    "nome": "Show2",
+                    "createdAt": "2017-06-19T02:05:19.450Z",
+                    "updatedAt": "2017-06-19T02:05:19.450Z"
+                },
+                "distancia": "4.1 km"
+            }
+
+### Get Eventos [GET] [/v1/app/evento/:origem/:cidade]
+    #### Exemplo url [host/v1/app/missa/-9.652532,-35.735195/Rio]
+
++ Response 201 (application/json)
+
+        + Body
+
+            [
+                {
+                    "id": 4,
+                    "nome_local": "Robertooo",
+                    "nome_evento": "dasdasdas",
+                    "detalhe": "123456789",
+                    "foto": "dasdasdas3_7_2017.jpg",
+                    "data_inicio": "2017-09-01T00:00:00.000Z",
+                    "data_termino": "2017-09-02T00:00:00.000Z",
+                    "preco": 12.5,
+                    "link": "1235dsadasdsads64",
+                    "createdAt": "2017-07-03T21:57:08.823Z",
+                    "updatedAt": "2017-07-03T21:57:08.823Z",
+                    "tipoEventoId": 1,
+                    "usuarioId": 1,
+                    "endereco": {
+                        "id": 23,
+                        "cep": "123456789",
+                        "logradouro": "dddsadsadas",
+                        "complemento": "das",
+                        "bairro": "dsa",
+                        "cidade": "Rio",
+                        "estado": "das",
+                        "numero": "asd",
+                        "longitude": "-35.704802",
+                        "latitude": "-9.645770",
+                        "createdAt": "2017-07-03T21:57:08.990Z",
+                        "updatedAt": "2017-07-03T21:57:08.990Z",
+                        "usuarioId": null,
+                        "eventoId": 4
+                    },
+                    "usuario": {
+                        "id": 1,
+                        "nome": "Robertooo",
+                        "nome_responsavel": "dasdasdas",
+                        "cnpj": "123456789",
+                        "email": "rm@gmail.com",
+                        "ativo": true,
+                        "telefone": "123123213",
+                        "createdAt": "2017-06-19T02:01:21.787Z",
+                        "updatedAt": "2017-06-19T02:01:21.787Z"
+                    },
+                    "tipo_evento": {
+                        "id": 1,
+                        "nome": "Show2",
+                        "createdAt": "2017-06-19T02:05:19.450Z",
+                        "updatedAt": "2017-06-19T02:05:19.450Z"
+                    },
+                    "distancia": "4.1 km"
+                }
+            ]
+
+
+
