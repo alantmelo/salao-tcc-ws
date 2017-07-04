@@ -14,6 +14,7 @@ const padreRoutes = require('./routes/padre');
 const tipoMissaRoutes = require('./routes/tipo-missa');
 const missaRoutes = require('./routes/missa');
 const missaAppRoutes = require('./routes/missa.app');
+const loginRoutes = require('./routes/login');
 
 const apiVersion = "/v1";
 const apiWeb = apiVersion + "/web/";
@@ -43,6 +44,8 @@ app.use(apiWeb + 'tipo-missa', tipoMissaRoutes);
 //Missa
 app.use(apiWeb + 'missa', missaRoutes);
 app.use(apiApp + 'missa', missaAppRoutes);
+//Login 
+app.use(apiWeb + 'login', loginRoutes);
 //Rota default
 app.use('*', (req, res, next) => {
     res.send("Pagina Default");

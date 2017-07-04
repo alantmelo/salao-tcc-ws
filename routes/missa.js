@@ -29,7 +29,8 @@ router.get('/:id', (req, res, next) => {
     }).then((missas) => {
         res.json(missas);
     }).catch((error) => res.send(error));
-})
+});
+
 router.get('/', (req, res, next) => {
     Missa.findAll({
         include: [
@@ -45,24 +46,7 @@ router.get('/', (req, res, next) => {
         res.json(missas);
     }).catch((error) => res.send(error));
 });
-// {
-//     "missa" : {
-//         "tipo": 1,
-//             "hora" : "19:00",
-//                 "usuarioId": 1,
-//                     "repete": true,
-//                         "padreId" : 4,
-//                             "horario" : {
-//             "segunda" : true,
-//                 "terca"  : true,
-//                     "quarta" : true,
-//                         "quinta" : true,
-//                             "sexta" : false,
-//                                 "sabado" : true,
-//                                     "domingo" : true
-//         }
-//     }
-// }
+
 router.post('/', (req, res, next) => {
     Missa.create(req.body.missa, {
         include: [{

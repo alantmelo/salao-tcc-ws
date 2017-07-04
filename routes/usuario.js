@@ -40,28 +40,6 @@ router.get('/:id', (req, res, next) => {
 
 });
 
-// requisicao = {
-//     "usuario": {
-//         "nome": "Roberto",
-//         "nome_responsavel": "dasdasdas",
-//         "cnpj": "123456789",
-//         "email": "rm@gmail.com",
-//         "ativo": true,
-//         "telefone": "123123213",
-//         "senha": "123564",
-//         "endereco": {
-//             "cep": "123456789",
-//             "logradouro": "das",
-//             "complemento": "das",
-//             "bairro": "dsa",
-//             "cidade": "das",
-//             "estado": "das",
-//             "numero": "asd",
-//             "longitude": "asd",
-//             "latitude": "das"
-//         }
-//     }
-// }
 router.post('/', (req, res, next) => {
     Usuario.create(req.body.usuario, {
         include: [{

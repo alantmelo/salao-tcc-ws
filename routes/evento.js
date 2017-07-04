@@ -1,55 +1,79 @@
 const router = require('express').Router();
 const Evento = require('../models/Evento');
 const Endereco = require('../models/Endereco');
+const Usuario = require('../models/Usuario');
 const TipoEvento = require('../models/Tipo-Evento');
 const FileSystem = require('fs');
 
 const EventoEndereco = Evento.hasOne(Endereco);
 const EventoTipoEvento = Evento.belongsTo(TipoEvento);
-
-// const multer = require('multer');
-// const upload = multer({ dest: 'uploads/' })
+const EventoUsuario = Evento.belongsTo(Usuario);
 
 module.exports = router;
-// {
-//     "evento": {
-//         "nome_local": "Robert",
-//         "nome_evento": "dasdasdas",
-//         "detalhe": "123456789",
-//         "foto": " BASE64",
-//         "data_inicio": "2007-01-01",
-//         "data_termino": "2007-02-02",
-//         "preco": 12.50,
-//         "link": "1235dsadasdsads64",
-//         "tipoEventoId": 1,
-//         "endereco": {
-//             "cep": "123456789",
-//             "logradouro": "dddsadsadas",
-//             "complemento": "das",
-//             "bairro": "dsa",
-//             "cidade": "das",
-//             "estado": "das",
-//             "numero": "asd",
-//             "longitude": "asd",
-//             "latitude": "das"
-//         }
-//     }
-// }
+
 router.get('/', (req, res, next) => {
     Evento.findAll({
         include: [{
-            all: true
-        }]
+                model: Endereco
+            },
+            {
+                association: EventoUsuario,
+                attributes: {
+                    exclude: ['senha']
+                }
+            },
+            {
+                association: EventoTipoEvento,
+            }
+        ]
+    }).then((eventos) => {
+        res.json(eventos);
+    }).catch((error) => res.send(error));
+});
+
+router.get('/:id', (req, res, next) => {
+    Evento.findById(req.params.id, {
+        include: [{
+                model: Endereco
+            },
+            {
+                association: EventoUsuario,
+                attributes: {
+                    exclude: ['senha']
+                }
+            },
+            {
+                association: EventoTipoEvento
+            }
+        ]
+    }).then((evento) => {
+        res.json(evento);
+    }).catch((error) => res.send(error));
+});
+
+router.get('/byigreja/:id', (req, res, next) => {
+    Evento.findAll({
+        where: {
+            usuarioId: req.params.id
+        },
+        include: [{
+                model: Endereco
+            },
+            {
+                association: EventoUsuario,
+                attributes: {
+                    exclude: ['senha']
+                }
+            },
+            {
+                association: EventoTipoEvento,
+            }
+        ]
     }).then((eventos) => {
         res.json(eventos)
     }).catch((error) => res.send(error));
 });
-router.get('/:id', (req, res, next) => {
-    Evento.findById(req.params.id, { include: [{ all: true }] })
-        .then((evento) => {
-            res.json(evento);
-        }).catch((error) => res.send(error));
-})
+
 router.post('/', (req, res, next) => {
     let foto = req.body.evento.foto.replace(/^data:image\/\w+;base64,/, '');
     let data = new Date();
@@ -66,8 +90,12 @@ router.post('/', (req, res, next) => {
         req.body.evento.foto = nomeArquivo;
         Evento.create(req.body.evento, {
             include: [{
-                association: EventoEndereco
-            }]
+                    association: EventoEndereco
+                },
+                {
+                    association: EventoUsuario
+                }
+            ]
         }).then((evento) => {
             res.json(evento);
         }).catch((error) => {
@@ -75,6 +103,7 @@ router.post('/', (req, res, next) => {
         });
     });
 });
+
 router.put('/:id', (req, res, next) => {
     let foto = req.body.evento.foto;
     if (foto.length > 50) {
@@ -118,11 +147,17 @@ function update(bodyEvento, id, res) {
 }
 
 router.delete('/:id', (req, res, next) => {
-    Evento.destroy({
+    Endereco.destroy({
         where: {
-            id: req.params.id
+            eventoId: req.params.id
         }
-    }).then((res) => {
-        res.send("Evento deletado com sucesso");
+    }).then((endereco) => {
+        Evento.destroy({
+            where: {
+                id: req.params.id
+            }
+        }).then((evento) => {
+            res.send("Evento deletado com sucesso");
+        }).catch((error) => res.send(error));
     }).catch((error) => res.send(error));
 });
