@@ -16,13 +16,13 @@ router.get('/', (req, res, next) => {
 });
 
 router.post('/', (req, res, next) => {
-    TipoEvento.create(req.body).then((tipoEvento) => {
+    TipoEvento.create(req.body.tipo_evento).then((tipoEvento) => {
         res.json(tipoEvento);
     }).catch((error) => res.send(error));
 });
 
 router.put('/:id', (req, res, next) => {
-    TipoEvento.update(req.body, { where: { id: req.params.id }, returning: true }).then((tipoEvento) => {
+    TipoEvento.update(req.body.tipo_evento, { where: { id: req.params.id }, returning: true }).then((tipoEvento) => {
         res.json(tipoEvento);
     }).catch((error) => res.send(error));
 });

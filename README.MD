@@ -1180,5 +1180,185 @@ HOST: http://localhost:3000/
                 }
             ]
 
+## Login [APP] [/v1/app/login]
+### Login Facebook [POST] [/v1/app/login/facebook]  
+
++ Request (application/json)
+
+        + Body
+
+                { 
+                    "usuario" : {
+                        "facebookId" : "6",
+                        "nome" : "Roberto",
+                        "email" : "Email",
+                        "foto" : "www.image.com/foto",
+                    }
+                }
+
++ Response 200 (application/json)
+
+        + Body
+        
+            {
+                "id": 4,
+                "facebookId": "6",
+                "nome": "Roberto",
+                "email": "roberto@hotmail.com",
+                "foto": "www.image.com/foto",
+                "updatedAt": "2017-07-11T23:28:22.919Z",
+                "createdAt": "2017-07-11T23:28:22.919Z",
+                "googleId": null
+            }
+
+### Login Google [POST] [/v1/app/login/google]  
+
++ Request (application/json)
+
+        + Body
+
+                { 
+                    "usuario" : {
+                        "googleId" : "6",
+                        "nome" : "Roberto",
+                        "email" : "Email",
+                        "foto" : "www.image.com/foto",
+                    }
+                }
+
++ Response 200 (application/json)
+
+        + Body
+        
+            {
+                "id": 5,
+                "googleId": "6",
+                "nome": "Roberto",
+                "email": "roberto@hotmail.com",
+                "foto": "www.image.com/foto",
+                "updatedAt": "2017-07-11T23:31:00.351Z",
+                "createdAt": "2017-07-11T23:31:00.351Z",
+                "facebookId": null
+            }
+
+## Tipo Evento [WEB] [/v1/web/tipo-evento]
+### Get Tipo Evento [GET]  [/v1/web/tipo-evento/:id]
+
++ Response 200 (application/json)
+
+        + Body
+
+            {
+                "id": 1,
+                "nome": "Show2",
+                "createdAt": "2017-06-19T02:05:19.450Z",
+                "updatedAt": "2017-06-19T02:05:19.450Z"
+            }
+
+### Get Tipo Evento [GET]  [/v1/web/tipo-evento]
+
++ Response 200 (application/json)
+
+        + Body
+        [
+            {
+                "id": 1,
+                "nome": "Show2",
+                "createdAt": "2017-06-19T02:05:19.450Z",
+                "updatedAt": "2017-06-19T02:05:19.450Z"
+            }
+        ]
+
+### Inserir Tipo Evento [POST] [/v1/web/tipo-evento] [PUT] [/v1/web/tipo-evento/:id]
+
++ Request (application/json)
+
+        {
+            "tipo_evento" : {
+                "nome": "Missa"
+            }
+        }
+
++ Response 201 (application/json)
+
+        + Body
+    
+           {
+                "id": 2,
+                "nome": "show3",
+                "updatedAt": "2017-07-11T23:40:42.896Z",
+                "createdAt": "2017-07-11T23:40:42.896Z"
+            }
+
+### Deletar Tipo Evento [DELETE] [/v1/web/tipo-evento/:id]
+
++ Response 201 (application/json)
+
+## Login [WEB] [/v1/web/login]
+### Get Login [GET]  [/v1/web/login/:id]
+
++ Response 200 (application/json)
+
+        + Body
+
+            {
+                "id": 1,
+                "nome": "Robertooo",
+                "nome_responsavel": "dasdasdas",
+                "cnpj": "123456789",
+                "email": "rm@gmail.com",
+                "ativo": true,
+                "telefone": "123123213",
+                "createdAt": "2017-06-19T02:01:21.787Z",
+                "updatedAt": "2017-06-19T02:01:21.787Z"
+            }
+
+### Get Login [GET]  [/v1/web/login]
+
++ Response 200 (application/json)
+
+        + Body
+        [
+            {
+                "id": 1,
+                "nome": "Robertooo",
+                "nome_responsavel": "dasdasdas",
+                "cnpj": "123456789",
+                "email": "rm@gmail.com",
+                "ativo": true,
+                "telefone": "123123213",
+                "createdAt": "2017-06-19T02:01:21.787Z",
+                "updatedAt": "2017-06-19T02:01:21.787Z"
+            }
+        ]
+
+### Fazer Login [POST] [/v1/web/login]
+
++ Request (application/json)
+
+        {
+            "usuario" : {
+                "email" : "rm@gmal.com",
+                "senha" : "123456"
+            }
+        }
+
++ Response 201 (application/json)
+
+        + Body
+    
+           {
+                "id": 1,
+                "nome": "Robertooo",
+                "nome_responsavel": "dasdasdas",
+                "cnpj": "123456789",
+                "email": "rm@gmail.com",
+                "ativo": true,
+                "telefone": "123123213",
+                "createdAt": "2017-06-19T02:01:21.787Z",
+                "updatedAt": "2017-06-19T02:01:21.787Z"
+            }
+
+
 
 
