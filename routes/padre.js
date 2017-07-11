@@ -55,7 +55,7 @@ router.delete('/:id', (req, res, next) => {
         where: {
             id: req.params.id
         }
-    }).then((res) => {
+    }).then((padre) => {
         res.send("Padre deletado com sucesso");
     }).catch((error) => res.send(error));
 })
