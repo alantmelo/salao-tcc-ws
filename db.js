@@ -1,5 +1,7 @@
 const Sequelize = require('sequelize');
-const db = new Sequelize('postgres://postgres:root@localhost:5432/ahoradamissa_v2');
+const db = new Sequelize('postgres://postgres:arrombado@2017@localhost:5432/ahoradamissa_v2', {
+    logging:false
+});
 // const Usuario = require('./models/usuario');0
 
 

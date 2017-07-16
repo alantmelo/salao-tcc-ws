@@ -64,7 +64,7 @@ app.use('*', (req, res, next) => {
 
 const server = app.listen(3000, () => {
     console.log('Servidor rodando e escutando a porta', server.address().port, '...');
-    db.sync().then((mensagem) => {
+    db.sync({ force: false }).then((mensagem) => {
         console.log("e db está sincronizado");
     }).catch((err) => {
         throw err;
