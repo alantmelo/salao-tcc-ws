@@ -7,7 +7,8 @@ const Endereco = db.define('endereco', {
             len: {
                 args: [1, 9],
                 msg: "O campo cep deve ter 9 caracters"
-            }
+            },
+            notNull: true
         }
     },
     'logradouro': {
@@ -16,7 +17,8 @@ const Endereco = db.define('endereco', {
             notEmpty: {
                 args: [true],
                 msg: "Campo Logradouro Vazio"
-            }
+            },
+            notNull: true
         }
     },
     'complemento': {
@@ -28,7 +30,8 @@ const Endereco = db.define('endereco', {
             notEmpty: {
                 args: [true],
                 msg: "Campo Logradouro Vazio"
-            }
+            },
+            notNull: true
         }
 
     },
@@ -38,7 +41,8 @@ const Endereco = db.define('endereco', {
             notEmpty: {
                 args: [true],
                 msg: "Campo Logradouro Vazio"
-            }
+            },
+            notNull: true
         }
 
     },
@@ -48,7 +52,8 @@ const Endereco = db.define('endereco', {
             notEmpty: {
                 args: [true],
                 msg: "Campo Logradouro Vazio"
-            }
+            },
+            notNull: true
         }
 
     },
@@ -58,7 +63,8 @@ const Endereco = db.define('endereco', {
             notEmpty: {
                 args: [true],
                 msg: "Campo Logradouro Vazio"
-            }
+            },
+            notNull: true
         }
 
     },
@@ -68,7 +74,8 @@ const Endereco = db.define('endereco', {
             notEmpty: {
                 args: [true],
                 msg: "Campo Logradouro Vazio"
-            }
+            },
+            notNull: true
         }
 
     },
@@ -78,7 +85,8 @@ const Endereco = db.define('endereco', {
             notEmpty: {
                 args: [true],
                 msg: "Campo Logradouro Vazio"
-            }
+            },
+            notNull: true
         }
     }
 });

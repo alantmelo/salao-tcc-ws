@@ -8,7 +8,8 @@ const SantoDia = db.define('santo_dia', {
             notEmpty: {
                 args: [true],
                 msg : "Campo titulo vazio"
-            }
+            },
+            notNull: true
         }
     },
     'foto': {
@@ -17,7 +18,8 @@ const SantoDia = db.define('santo_dia', {
             notEmpty: {
                 args: [true],
                 msg: "Campo Foto Vazio"
-            }
+            },
+            notNull: true
         }
     },
     'texto': {
@@ -26,7 +28,8 @@ const SantoDia = db.define('santo_dia', {
             notEmpty: {
                 args: [true],
                 msg: "Campo texto vazio"
-            }
+            },
+            notNull: true
         }
     },
     'dia': {
@@ -35,7 +38,8 @@ const SantoDia = db.define('santo_dia', {
             notEmpty: {
                 args: [true],
                 msg: "Campo dia vazio"
-            }
+            },
+            notNull: true
         }
     },
     'mes': {
@@ -44,7 +48,8 @@ const SantoDia = db.define('santo_dia', {
             notEmpty: {
                 args: [true],
                 msg: "Campo mes vazio"
-            }
+            },
+            notNull: true
         }
     },
     'foto': {
@@ -53,7 +58,8 @@ const SantoDia = db.define('santo_dia', {
             notEmpty: {
                 args: [true],
                 msg: "Campo foto vazio"
-            }
+            },
+            notNull: true
         }
     }
 });

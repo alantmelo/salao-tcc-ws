@@ -38,9 +38,13 @@ router.get('/id/:id/:origem', (req, res, next) => {
         }
         ]
     }).then((evento) => {
-            Distance.matrix([req.params.origem], [evento.endereco.latitude + ',' + evento.endereco.longitude], (err, distances) => {
+        Distance.matrix([req.params.origem], [evento.endereco.latitude + ',' + evento.endereco.longitude], (err, distances) => {
+            if (distances.rows[0].elements[0].distance.text === undefined || distances.rows[0].elements[0].distance.text === "" || distances.rows[0].elements[0].distance.text === null) {
+                evento.distancia = "Distancia nao encontrada";
+            } else {
                 evento.distancia = distances.rows[0].elements[0].distance.text;
-                res.json(evento);
+            }
+                res.json(evento);                
             });
     }).catch((error) => res.send(error));
 })
@@ -74,7 +78,11 @@ router.get('/:origem/:cidade', (req, res, next) => {
     }).then((eventos) => {
         Async.forEach(eventos, (evento, callback) => {
             Distance.matrix([req.params.origem], [evento.endereco.latitude + ',' + evento.endereco.longitude], (err, distances) => {
-                evento.distancia = distances.rows[0].elements[0].distance.text;
+                if (distances.rows[0].elements[0].distance.text === undefined || distances.rows[0].elements[0].distance.text === "" || distances.rows[0].elements[0].distance.text === null) {
+                    evento.distancia = "Distancia nao encontrada";
+                } else {
+                    evento.distancia = distances.rows[0].elements[0].distance.text;                    
+                }
                 callback();
             });
         }, (err) => {

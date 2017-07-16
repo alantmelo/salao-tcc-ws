@@ -8,7 +8,8 @@ const TipoEvento = db.define('tipo_evento', {
             notEmpty: {
                 args: [true],
                 msg: "Campo nome Vazio"
-            }
+            },
+            notNull: true
         }
     }
 })

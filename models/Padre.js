@@ -7,7 +7,8 @@ const Padre = db.define('padre', {
             notEmpty: {
                 args: [true],
                 msg: "Favor inserir campo nome"
-            }
+            },
+            notNull: true
         }
     }
 })

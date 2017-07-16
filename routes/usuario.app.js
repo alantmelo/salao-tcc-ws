@@ -22,7 +22,11 @@ router.get('/id/:id/:origem', (req, res, next) => {
         }
     }).then((usuario) => {
         Distance.matrix([req.params.origem], [usuario.endereco.latitude + ',' + usuario.endereco.longitude], (err, distances) => {
-            usuario.distancia = distances.rows[0].elements[0].distance.text;
+            if (distances.rows[0].elements[0].distance.text === undefined || distances.rows[0].elements[0].distance.text === "" || distances.rows[0].elements[0].distance.text === null) {
+                evento.distancia = "Distancia nao encontrada";
+            } else {
+                evento.distancia = distances.rows[0].elements[0].distance.text;
+            }
             res.json(usuario);
         })
      }).catch((error) => res.send(error));
@@ -42,8 +46,11 @@ router.get('/:origem/:cidade', (req, res, next) => {
     }).then((usuario) => {
         Async.forEach(usuario,  (usuarioItem, callback) => {
             Distance.matrix([req.params.origem], [usuarioItem.endereco.latitude + ',' + usuarioItem.endereco.longitude],  (err, distances) => {
-                usuarioItem.distancia = distances.rows[0].elements[0].distance.text;
-                console.log(distances.rows[0].elements[0].distance.text);
+                if (distances.rows[0].elements[0].distance.text === undefined || distances.rows[0].elements[0].distance.text === "" || distances.rows[0].elements[0].distance.text === null) {
+                    evento.distancia = "Distancia nao encontrada";
+                } else {
+                    evento.distancia = distances.rows[0].elements[0].distance.text;
+                }
                 callback();
             });
         }, (err) => {
