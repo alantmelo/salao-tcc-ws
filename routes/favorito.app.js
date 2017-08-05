@@ -9,7 +9,7 @@ const FavoritosUsuarioApp = Favorito.belongsTo(UsuarioApp);
 router.post('/', (req, res, next) => {
     Favorito.create(req.body.favorito)
         .then((favorito) => {
-            res.json(missa);
+            res.json(favorito);
         }).catch((error) => res.send(error));
 });
 

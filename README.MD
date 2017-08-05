@@ -1367,7 +1367,7 @@ HOST: http://104.131.169.248:3000/
             }
 
 ## Favorito [App] [/v1/app/favorito]
-### Get Favoritos [GET]  [/v1/favorito/:id]
+### Get Favoritos [GET]  [/v1/app/favorito/:id]
 
 + Response 200 (application/json)
 

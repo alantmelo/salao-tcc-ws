@@ -9,9 +9,9 @@ module.exports = router;
 
 router.get('/', (req, res, next) => {
     Usuario.findAll({
-        where: {
-            ativo: true
-        },
+        // where: {
+        //     ativo: true
+        // },
         include: [{
             all: true
         }],
