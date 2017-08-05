@@ -13,6 +13,7 @@ const UsuarioApp = db.define('usuario_app', {
     },
     'email': {
         type: Sequelize.STRING,
+        unique: true,
         validate: {
             isEmail: {
                 args: [true],
