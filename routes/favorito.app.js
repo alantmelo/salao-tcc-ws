@@ -6,6 +6,7 @@ const Async = require('async');
 module.exports = router;
 const FavoritosIgreja = Favorito.belongsTo(Usuario);
 const FavoritosUsuarioApp = Favorito.belongsTo(UsuarioApp);
+const CreatorAssociation = Usuario.hasOne(Endereco);
 
 router.post('/', (req, res, next) => {
     Favorito.create(req.body.favorito)
@@ -25,7 +26,10 @@ router.get('/:id', (req, res, next) => {
             Usuario.find({
                 where: {
                     id: favorito.usuarioId
-                }
+                },
+                include: [{
+                    all: true
+                }],
             }).then((usuario) => {
                 console.log(usuario);
                 favorito.usuarioIgreja = usuario;
