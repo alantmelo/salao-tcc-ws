@@ -77,6 +77,9 @@ const Usuario = db.define('usuario', {
     },
     'distancia': {
         type: Sequelize.VIRTUAL
+    },
+    'favorito': {
+        type : Sequelize.VIRTUAL
     }
 });
 module.exports = Usuario;
