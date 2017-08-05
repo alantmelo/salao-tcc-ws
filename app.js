@@ -31,7 +31,7 @@ app.use(Cors());
 app.use(BodyParser.json({limit : '6mb'}));
 app.use(BodyParser.urlencoded({ extended: true, limit : '6mb' }));
 
-app.use(Express.static( 'public'));
+app.use(Express.static('ahrm_v2'));
 
 //Rotas da api
 //Igreja || Usuario
