@@ -21,6 +21,7 @@ const Usuario = db.define('usuario', {
     },
     'cnpj': {
         type: Sequelize.STRING,
+        unique: true,
         validate: {
             notEmpty: {
                 args: [true],
@@ -30,6 +31,7 @@ const Usuario = db.define('usuario', {
     },
     'email': {
         type: Sequelize.STRING,
+        unique: true,
         validate: {
             isEmail: {
                 args: [true],
