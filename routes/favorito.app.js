@@ -30,6 +30,9 @@ router.get('/:id', (req, res, next) => {
                 include: [{
                     all: true
                 }],
+                attributes: {
+                    exclude: ['senha']
+                },
             }).then((usuario) => {
                 console.log(usuario);
                 favorito.usuarioIgreja = usuario;
