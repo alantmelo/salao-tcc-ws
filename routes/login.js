@@ -31,7 +31,8 @@ router.post('/', (req, res, next) => {
     Usuario.find({
         where: {
             email: req.body.usuario.email,
-            senha: req.body.usuario.senha
+            senha: req.body.usuario.senha,
+            ativo : true
         },
         attributes: {
             exclude: ['senha']
