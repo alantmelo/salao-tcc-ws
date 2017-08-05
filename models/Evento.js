@@ -7,8 +7,7 @@ const Evento = db.define('evento', {
             notEmpty: {
                 args: [true],
                 msg: "Campo Nome do Local Vazio"
-            },
-            notNull: true
+            }
         }
     },
     "nome_evento": {
@@ -17,8 +16,7 @@ const Evento = db.define('evento', {
             notEmpty: {
                 args: [true],
                 msg: "Campo Nome do Evento Vazio"
-            },
-            notNull: true
+            }
         }
     },
     "detalhe": {
@@ -27,8 +25,7 @@ const Evento = db.define('evento', {
             notEmpty: {
                 args: [true],
                 msg: "Campo Detalhe Vazio"
-            },
-            notNull: true
+            }
         }
     },
     "foto": {
@@ -37,8 +34,7 @@ const Evento = db.define('evento', {
             notEmpty: {
                 args: [true],
                 msg: "Campo Foto Vazio"
-            },
-            notNull: true
+            }
         }
     },
     "data_inicio": {
@@ -47,8 +43,7 @@ const Evento = db.define('evento', {
             notEmpty: {
                 args: [true],
                 msg: "Campo Data Inicio Vazio"
-            },
-            notNull: true
+            }
         }
     },
     "data_termino": {
@@ -57,8 +52,7 @@ const Evento = db.define('evento', {
             notEmpty: {
                 args: [true],
                 msg: "Campo Data Termino Vazio"
-            },
-            notNull: true
+            }
         }
     },
     "preco": {
@@ -67,8 +61,7 @@ const Evento = db.define('evento', {
             notEmpty: {
                 args: [true],
                 msg: "Campo Preço Vazio"
-            },
-            notNull: true
+            }
         }
     },
     "link": { // Esse campo dever ser validado?
@@ -77,8 +70,7 @@ const Evento = db.define('evento', {
             notEmpty: {
                 args: [true],
                 msg: "Campo Link Vazio"
-            },
-            notNull: true
+            }
         }
     },
     'distancia': {

@@ -7,8 +7,7 @@ const TipoMissa = db.define('tipo_missa', {
             notEmpty: {
                 args: [true],
                 msg : "Campo nome Vazio"
-            },
-            notNull: true
+            }
         }
     }
 });
