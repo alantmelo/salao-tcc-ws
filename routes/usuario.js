@@ -47,30 +47,30 @@ function removerAcentos(s) { return s.replace(/[\W\[\] ]/g, function (a) { retur
 
 router.post('/', (req, res, next) => {
 
-    console.log(removerAcentos('ParóquiaSantaLuziadeSiracusa17_7_2017'));
-//     let foto = req.body.usuario.foto.replace(/^data:image\/\w+;base64,/, '');
-//     let data = new Date();
-//     let mes = data.getMonth() + 1;
-//     data = data.getDate() + "_" + mes + "_" + data.getFullYear();
-//     let nomedocumento = req.body.usuario.nome.split(' ').join( "");
-//     let nomeArquivo = nomedocumento + data + '.jpg';
-//     FileSystem.writeFile('uploads/usuarios/' + nomeArquivo, foto, {
-//         encoding: 'base64'
-//     }, function (error) {
-//         if (error) {
-//             res.send(error);
-//         }
-//         req.body.usuario.foto = nomeArquivo;
-//         Usuario.create(req.body.usuario, {
-//             include: [{
-//                 association: CreatorAssociation
-//             }]
-//         }).then((usuario) => {
-//             delete req.body.usuario.senha;
-// 	console.log(usuario);            
-// res.json(req.body.usuario);
-//         }).catch((error) => res.send(error));
-//     });
+    // console.log(removerAcentos('ParóquiaSantaLuziadeSiracusa17_7_2017'));
+    let foto = req.body.usuario.foto.replace(/^data:image\/\w+;base64,/, '');
+    let data = new Date();
+    let mes = data.getMonth() + 1;
+    data = data.getDate() + "_" + mes + "_" + data.getFullYear();
+    let nomedocumento = req.body.usuario.nome.split(' ').join("");
+    let nomeArquivo = removerAcentos(nomedocumento) + data + '.jpg';
+    FileSystem.writeFile('uploads/usuarios/' + nomeArquivo, foto, {
+        encoding: 'base64'
+    }, function (error) {
+        if (error) {
+            res.send(error);
+        }
+        req.body.usuario.foto = nomeArquivo;
+        Usuario.create(req.body.usuario, {
+            include: [{
+                association: CreatorAssociation
+            }]
+        }).then((usuario) => {
+            delete req.body.usuario.senha;
+	console.log(usuario);            
+res.json(req.body.usuario);
+        }).catch((error) => res.send(error));
+    });
 });
 
 
@@ -83,7 +83,7 @@ router.put('/:id', (req, res, next) => {
         let mes = data.getMonth() + 1;
         data = data.getDate() + "_" + mes + "_" + data.getFullYear();
 	let nomedocumento = req.body.usuario.nome.split(" ").join( "" );
-        let nomeArquivo = nomedocumento + data + '.jpg';
+    let nomeArquivo = removerAcentos(nomedocumento) + data + '.jpg';
         FileSystem.writeFile('uploads/usuarios/' + nomeArquivo, foto, {
             encoding: 'base64'
         }, function (error) {
