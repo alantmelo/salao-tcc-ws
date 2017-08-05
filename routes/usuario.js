@@ -47,7 +47,7 @@ function removerAcentos(s) { return s.replace(/[\W\[\] ]/g, function (a) { retur
 
 router.post('/', (req, res, next) => {
 
-    console.log(removerAcentos(ParóquiaSantaLuziadeSiracusa17_7_2017));
+    console.log(removerAcentos('ParóquiaSantaLuziadeSiracusa17_7_2017'));
 //     let foto = req.body.usuario.foto.replace(/^data:image\/\w+;base64,/, '');
 //     let data = new Date();
 //     let mes = data.getMonth() + 1;
