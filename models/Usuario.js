@@ -7,8 +7,7 @@ const Usuario = db.define('usuario', {
             len: {
                 args: [1, 150],
                 msg: "Favor o campo nome deve ter no minimo 6 caracters e no máximo 150"
-            },
-        notNull: true
+            }
         }
     },
     'nome_responsavel': {
@@ -17,7 +16,7 @@ const Usuario = db.define('usuario', {
             len: {
                 args: [1, 150],
                 msg: "Favor o campo nome do resmposavel deve ter no minimo 6 caracters e no máximo 150"
-            }, notNull: true
+            }
         }
     },
     'cnpj': {
@@ -26,7 +25,7 @@ const Usuario = db.define('usuario', {
             notEmpty: {
                 args: [true],
                 msg: "Favor inserir campo CNPJ"
-            }, notNull: true
+            }
         }
     },
     'email': {
@@ -35,7 +34,7 @@ const Usuario = db.define('usuario', {
             isEmail: {
                 args: [true],
                 msg: "Campo email inválido"
-            }, notNull: true
+            }
         }
     },
     'ativo': {
@@ -44,7 +43,7 @@ const Usuario = db.define('usuario', {
             notEmpty: {
                 args: [true],
                 msg: "Favor inserir campo ativo"
-            }, notNull: true
+            }
         }
     },
     'telefone': {
@@ -53,7 +52,7 @@ const Usuario = db.define('usuario', {
             notEmpty: {
                 args: [true],
                 msg: "Favor inserir campo Telefone"
-            }, notNull: true
+            }
         }
     },
     'senha': {
@@ -62,7 +61,7 @@ const Usuario = db.define('usuario', {
             len: {
                 args: [6, 150],
                 msg: "Favor o campo senha deve ter no minimo 6 caracters e no máximo 150"
-            }, notNull: true
+            }
         }
     },
     "foto": {
@@ -71,7 +70,7 @@ const Usuario = db.define('usuario', {
             notEmpty: {
                 args: [true],
                 msg: "Campo Foto Vazio"
-            }, notNull: true
+            }
         }
     },
     'distancia': {

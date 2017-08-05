@@ -7,8 +7,7 @@ const Missa = db.define('missa', {
             notEmpty: {
                 args: [true],
                 msg: "Campo hora Vazio"
-            },
-            notNull: true
+            }
         }
     },
     "repete" : {
@@ -17,8 +16,7 @@ const Missa = db.define('missa', {
             notEmpty: {
                 args: [true],
                 msg: "Campo repete Vazio"
-            },
-            notNull: true
+            }
         }
     },
     'distancia': {

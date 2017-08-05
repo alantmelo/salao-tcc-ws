@@ -7,8 +7,8 @@ const UsuarioApp = db.define('usuario_app', {
             len: {
                 args: [1, 150],
                 msg: "Favor o campo nome deve ter no minimo 6 caracters e no máximo 150"
-            },
-        notNull: true
+            }
+        
         }
     },
     'email': {
@@ -17,8 +17,7 @@ const UsuarioApp = db.define('usuario_app', {
             isEmail: {
                 args: [true],
                 msg: "Campo email inválido"
-            },
-            notNull: true
+            }
         }
     },
     'foto': {
@@ -27,9 +26,7 @@ const UsuarioApp = db.define('usuario_app', {
             notEmpty: {
                 args: [true],
                 msg: "Favor inserir campo Foto"
-            },
-            notNull: true
-        }
+            }        }
     },
     'facebookId': {
         type: Sequelize.STRING

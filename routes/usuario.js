@@ -42,11 +42,12 @@ router.get('/:id', (req, res, next) => {
 });
 
 router.post('/', (req, res, next) => {
-    let foto = req.body.evento.foto.replace(/^data:image\/\w+;base64,/, '');
+    let foto = req.body.usuario.foto.replace(/^data:image\/\w+;base64,/, '');
     let data = new Date();
     let mes = data.getMonth() + 1;
     data = data.getDate() + "_" + mes + "_" + data.getFullYear();
-    let nomeArquivo = req.body.usuario.nome + data + '.jpg';
+    let nomedocumento = req.body.usuario.nome.split(' ').join( "");
+    let nomeArquivo = nomedocumento + data + '.jpg';
     FileSystem.writeFile('uploads/usuarios/' + nomeArquivo, foto, {
         encoding: 'base64'
     }, function (error) {
@@ -60,19 +61,21 @@ router.post('/', (req, res, next) => {
             }]
         }).then((usuario) => {
             delete req.body.usuario.senha;
-            res.json(req.body.usuario);
-        }).catch((error) => result.send(error));
+	console.log(usuario);            
+res.json(req.body.usuario);
+        }).catch((error) => res.send(error));
     });
 });
 
 router.put('/:id', (req, res, next) => {
     let foto = req.body.usuario.foto;
     if (foto.length > 50) {
-        let foto = req.body.evento.foto.replace(/^data:image\/\w+;base64,/, '');
+        let foto = req.body.usuario.foto.replace(/^data:image\/\w+;base64,/, '');
         let data = new Date();
         let mes = data.getMonth() + 1;
         data = data.getDate() + "_" + mes + "_" + data.getFullYear();
-        let nomeArquivo = req.body.usuario.nome + data + '.jpg';
+	let nomedocumento = req.body.usuario.nome.split(" ").join( "" );
+        let nomeArquivo = nomedocumento + data + '.jpg';
         FileSystem.writeFile('uploads/usuarios/' + nomeArquivo, foto, {
             encoding: 'base64'
         }, function (error) {
@@ -102,8 +105,8 @@ function update(bodyUsuario, id, res) {
         }).then((endereco) => {
             delete bodyUsuario.senha;
             res.json(bodyUsuario);
-        }).catch((error) => result.send(error));
-    }).catch((error) => result.send(error));
+        }).catch((error) => res.send(error));
+    }).catch((error) => res.send(error));
 }
 
 
@@ -113,6 +116,6 @@ router.delete('/:id', (req, res, next) => {
             id: req.params.id
         }
     }).then((res) => {
-        res.json(res);
+        res.send("Id " + req.params.id + " foi deletado");
     }).catch((error) => res.send(error));
 });

@@ -26,8 +26,8 @@ const apiApp = apiVersion + "/app/"
 const app = Express();
 app.use(Volleyball);
 
-app.use(BodyParser.json());
-app.use(BodyParser.urlencoded({ extended: true }));
+app.use(BodyParser.json({limit : '6mb'}));
+app.use(BodyParser.urlencoded({ extended: true, limit : '6mb' }));
 
 app.use(Express.static(Path.join(__dirname, 'public')));
 
@@ -58,9 +58,9 @@ app.use(apiApp + 'login', loginAppRoutes);
 app.use(apiApp + 'favorito', favoritoRoutes);
 
 //Rota default
-app.use('*', (req, res, next) => {
-    res.send("Pagina Default");
-});
+//app.use('*', (req, res, next) => {
+  //  res.send("Pagina Default");
+//});
 
 const server = app.listen(3000, () => {
     console.log('Servidor rodando e escutando a porta', server.address().port, '...');
