@@ -1,6 +1,9 @@
 FORMAT: 1A
 HOST: http://104.131.169.248:3000/
 
+,falta colcoar os allowNull: false nos models
+
+
 # AHoraDaMissa API
 
 ## Igreja [WEB] [/v1/web/igreja]

@@ -2,6 +2,7 @@ const router = require('express').Router();
 const UsuarioApp = require('../models/Usuario-App');
 const Favorito = require('../models/Favorito');
 const Usuario = require('../models/Usuario');
+const Async = require('async');
 module.exports = router;
 const FavoritosIgreja = Favorito.belongsTo(Usuario);
 const FavoritosUsuarioApp = Favorito.belongsTo(UsuarioApp);
@@ -14,14 +15,32 @@ router.post('/', (req, res, next) => {
 });
 
 router.get('/:id', (req, res, next) => {
-    Favorito.find({
+    Favorito.findAll({
         where: {
-            usuarioAppId : req.params.id
+            usuarioAppId: req.params.id
         }
     }).then((favoritos) => {
-        res.send(favoritos);
-        }).catch((error) => {
-            res.send(error);
+
+        Async.forEach(favoritos, (favorito, callback) => {
+            Usuario.find({
+                where: {
+                    id: favorito.usuarioId
+                }
+            }).then((usuario) => {
+                favorito.usuario = usuario;
+                callback();
+            }).catch((error) => {
+                favorito.usuario = null;
+                callback();
+            })
+        }, (err) => {
+            if (err) {
+                res.json(err);
+            }
+            res.send(favoritos);
+        })
+    }).catch((error) => {
+        res.send(error);
     })
 });
 
@@ -29,11 +48,11 @@ router.delete('/:igreja/:usuario', (req, res, next) => {
     Favorito.destroy({
         where: {
             usuarioId: req.params.igreja,
-            usuarioAppId : req.params.usuario
-       }
+            usuarioAppId: req.params.usuario
+        }
     }).then((deletado) => {
         res.send("Favorito da igreja" + req.params.igreja + "  e usuario " + req.params.usuario + " deletado");
-    } ).catch((error) => {
+    }).catch((error) => {
         res.send(error);
-   })
+    })
 });
