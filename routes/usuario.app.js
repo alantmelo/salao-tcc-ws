@@ -13,7 +13,7 @@ router.get('/id/:id/:origem/:idapp', (req, res, next) => {
     Usuario.find({
         where: {
             ativo: true,
-            id : req.params.id
+            id: req.params.id
         },
         include: [{
             all: true
@@ -26,19 +26,24 @@ router.get('/id/:id/:origem/:idapp', (req, res, next) => {
             where: {
                 usuarioId: req.params.id,
                 usuarioAppId: req.params.idapp
-                }
+            }
         }).then((favorito) => {
-            console.log(favorito);
-        }).catch((errpr) => res.send(error));
-        // Distance.matrix([req.params.origem], [usuario.endereco.latitude + ',' + usuario.endereco.longitude], (err, distances) => {
-        //     if (distances.rows[0].elements[0].distance.text === undefined || distances.rows[0].elements[0].distance.text === "" || distances.rows[0].elements[0].distance.text === null) {
-        //         usuario.distancia = "Distancia nao encontrada";
-        //     } else {
-        //         usuario.distancia = distances.rows[0].elements[0].distance.text;
-        //     }
-        //     res.json(usuario);
-        // });
-     }).catch((error) => res.send(error));
+            if (favorito == null) {
+                usuario.favorito = false;
+            } else {
+                usuario.favorito = true;
+            }
+            Distance.matrix([req.params.origem], [usuario.endereco.latitude + ',' + usuario.endereco.longitude], (err, distances) => {
+                if (distances.rows[0].elements[0].distance.text === undefined || distances.rows[0].elements[0].distance.text === "" || distances.rows[0].elements[0].distance.text === null) {
+                    usuario.distancia = "Distancia nao encontrada";
+                } else {
+                    usuario.distancia = distances.rows[0].elements[0].distance.text;
+                }
+                res.json(usuario);
+            });            
+        }).catch((error) => res.send(error));
+
+    }).catch((error) => res.send(error));
 })
 //todas as igrejas
 router.get('/:origem/:cidade', (req, res, next) => {
@@ -47,27 +52,27 @@ router.get('/:origem/:cidade', (req, res, next) => {
             ativo: true
         },
         include: [{
-            model : Endereco, where : {cidade : "Maceió"}
+            model: Endereco, where: { cidade: "Maceió" }
         }],
         attributes: {
             exclude: ['senha'],
         }
     }).then((usuario) => {
-        Async.forEach(usuario,  (usuarioItem, callback) => {
-            Distance.matrix([req.params.origem], [usuarioItem.endereco.latitude + ',' + usuarioItem.endereco.longitude],  (err, distances) => {
+        Async.forEach(usuario, (usuarioItem, callback) => {
+            Distance.matrix([req.params.origem], [usuarioItem.endereco.latitude + ',' + usuarioItem.endereco.longitude], (err, distances) => {
                 if (distances.rows[0].elements[0].distance.text === undefined || distances.rows[0].elements[0].distance.text === "" || distances.rows[0].elements[0].distance.text === null) {
                     usuarioItem.distancia = "Distancia nao encontrada";
-                   callback();
-		} else {
+                    callback();
+                } else {
                     usuarioItem.distancia = distances.rows[0].elements[0].distance.text;
                     callback();
-		}
-                
+                }
+
             });
         }, (err) => {
-            if (err){
+            if (err) {
                 res.json(err);
-	    }
+            }
             res.json(usuario);
         })
     }).catch((error) => res.send(error));
