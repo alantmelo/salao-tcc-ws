@@ -1,5 +1,5 @@
 FORMAT: 1A
-HOST: http://http://104.131.169.248:3000/
+HOST: http://104.131.169.248:3000/
 
 # AHoraDaMissa API
 
