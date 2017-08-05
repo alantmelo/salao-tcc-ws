@@ -6,7 +6,7 @@ const Async = require('async');
 module.exports = router;
 const FavoritosIgreja = Favorito.belongsTo(Usuario);
 const FavoritosUsuarioApp = Favorito.belongsTo(UsuarioApp);
-const CreatorAssociation = Usuario.hasOne(Endereco);
+// const CreatorAssociation = Usuario.hasOne(Endereco);
 
 router.post('/', (req, res, next) => {
     Favorito.create(req.body.favorito)
