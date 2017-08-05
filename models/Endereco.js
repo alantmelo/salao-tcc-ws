@@ -33,7 +33,7 @@ const Endereco = db.define('endereco', {
 
     },
     'cidade': {
-        type: Sequelize.STRING,
+        type: Sequelize.STRING, 
         validate: {
             notEmpty: {
                 args: [true],
