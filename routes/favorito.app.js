@@ -27,6 +27,7 @@ router.get('/:id', (req, res, next) => {
                     id: favorito.usuarioId
                 }
             }).then((usuario) => {
+                console.log(usuario);
                 favorito.usuario = usuario;
                 callback();
             }).catch((error) => {
