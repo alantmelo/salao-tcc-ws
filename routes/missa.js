@@ -14,8 +14,11 @@ const MissaPadre = Missa.belongsTo(Padre);
 const MissaTipoMissa = Missa.belongsTo(TipoMissa);
 
 module.exports = router;
-router.get('/:id', (req, res, next) => {
+router.get('/:id/:idUsuario', (req, res, next) => {
     Missa.findById(req.params.id, {
+        where: {
+            usuarioId : req.params.idUsuario
+        },
         include: [
             { model: Horario, as: 'horario' },
             {
@@ -31,8 +34,11 @@ router.get('/:id', (req, res, next) => {
     }).catch((error) => res.send(error));
 });
 
-router.get('/', (req, res, next) => {
+router.get('/:idUsuario', (req, res, next) => {
     Missa.findAll({
+        where: {
+            usuarioId: req.params.idUsuario  
+        },
         include: [
             { model: Horario, as: 'horario' },
             {

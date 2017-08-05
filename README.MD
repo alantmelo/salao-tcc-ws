@@ -424,7 +424,7 @@ HOST: http://104.131.169.248:3000/
            "Tipo Missa deletado com sucesso"
 
 ## Missa [WEB] [/v1/web/missa]
-### Get Missa [GET]  [/v1/web/missa/:id]
+### Get Missa [GET]  [/v1/web/missa/:id/:idUsuario]
 
 + Response 200 (application/json)
 
@@ -478,7 +478,7 @@ HOST: http://104.131.169.248:3000/
                 }
             }
 
-### Get Missas [GET]  [/v1/web/missa]
+### Get Missas [GET]  [/v1/web/missa/:idUsuario]
 
 + Response 200 (application/json)
 
