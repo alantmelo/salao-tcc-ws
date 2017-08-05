@@ -60,6 +60,7 @@ router.get('/:origem/:cidade', (req, res, next) => {
     }).then((usuario) => {
         Async.forEach(usuario, (usuarioItem, callback) => {
             Distance.matrix([req.params.origem], [usuarioItem.endereco.latitude + ',' + usuarioItem.endereco.longitude], (err, distances) => {
+                console.log(distances);
                 if (distances.rows[0].elements[0].distance.text === undefined || distances.rows[0].elements[0].distance.text === "" || distances.rows[0].elements[0].distance.text === null) {
                     usuarioItem.distancia = "Distancia nao encontrada";
                     callback();
@@ -67,7 +68,6 @@ router.get('/:origem/:cidade', (req, res, next) => {
                     usuarioItem.distancia = distances.rows[0].elements[0].distance.text;
                     callback();
                 }
-
             });
         }, (err) => {
             if (err) {
