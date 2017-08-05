@@ -7,7 +7,8 @@ const Usuario = db.define('usuario', {
             len: {
                 args: [1, 150],
                 msg: "Favor o campo nome deve ter no minimo 6 caracters e no máximo 150"
-            }
+            },
+            allowNull: false
         }
     },
     'nome_responsavel': {
@@ -16,7 +17,8 @@ const Usuario = db.define('usuario', {
             len: {
                 args: [1, 150],
                 msg: "Favor o campo nome do resmposavel deve ter no minimo 6 caracters e no máximo 150"
-            }
+            },
+            allowNull: false
         }
     },
     'cnpj': {
@@ -26,7 +28,8 @@ const Usuario = db.define('usuario', {
             notEmpty: {
                 args: [true],
                 msg: "Favor inserir campo CNPJ"
-            }
+            },
+            allowNull: false
         }
     },
     'email': {
@@ -36,7 +39,8 @@ const Usuario = db.define('usuario', {
             isEmail: {
                 args: [true],
                 msg: "Campo email inválido"
-            }
+            },
+            allowNull: false
         }
     },
     'ativo': {
@@ -46,7 +50,8 @@ const Usuario = db.define('usuario', {
                 args: [true],
                 msg: "Favor inserir campo ativo"
             }
-        }
+        },
+        defaultValue: true
     },
     'telefone': {
         type: Sequelize.STRING,
@@ -54,7 +59,8 @@ const Usuario = db.define('usuario', {
             notEmpty: {
                 args: [true],
                 msg: "Favor inserir campo Telefone"
-            }
+            },
+            allowNull: false
         }
     },
     'senha': {
@@ -63,7 +69,8 @@ const Usuario = db.define('usuario', {
             len: {
                 args: [6, 150],
                 msg: "Favor o campo senha deve ter no minimo 6 caracters e no máximo 150"
-            }
+            },
+            allowNull: false
         }
     },
     "foto": {
