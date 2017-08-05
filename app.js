@@ -2,6 +2,7 @@ const Express = require('express');
 const Volleyball = require('volleyball');
 const BodyParser = require('body-parser');
 const Path = require('path');
+const Cors = require('cors');
 //db
 const db = require('./db');
 //rotas
@@ -25,6 +26,7 @@ const apiApp = apiVersion + "/app/"
 
 const app = Express();
 app.use(Volleyball);
+app.use(Cors());
 
 app.use(BodyParser.json({limit : '6mb'}));
 app.use(BodyParser.urlencoded({ extended: true, limit : '6mb' }));
