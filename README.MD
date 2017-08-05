@@ -899,7 +899,7 @@ HOST: http://104.131.169.248:3000/
                 }
             }
 
-### Get Eventos [GET]  [/v1/web/evento]
+### Get Eventos [GET]  [/v1/web/evento/]
 
 + Response 200 (application/json)
 

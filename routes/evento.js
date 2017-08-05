@@ -38,6 +38,9 @@ router.get('/', (req, res, next) => {
 
 router.get('/:id', (req, res, next) => {
     Evento.findById(req.params.id, {
+        where: {
+            usuarioId :  idUsuario
+        },
         include: [{
                 model: Endereco
             },

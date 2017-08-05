@@ -38,14 +38,14 @@ app.use('/imagem', Express.static(__dirname + '/uploads' ));
 app.use(apiWeb + 'igreja', usuarioRoutes);
 app.use(apiApp + 'igreja', usuarioAppRoutes);
 //Tipo Evento
-app.use(apiWeb + 'tipo-evento', tipoEventoRoutes);
+app.use(apiWeb + 'tipoevento', tipoEventoRoutes);
 // Evento
 app.use(apiWeb + 'evento', eventoRoutes);
 app.use(apiApp + 'evento', eventoAppRoutes);
 //Padre
 app.use(apiWeb + 'padre', padreRoutes);
 //Tipo Missa
-app.use(apiWeb + 'tipo-missa', tipoMissaRoutes);
+app.use(apiWeb + 'tipomissa', tipoMissaRoutes);
 //Missa
 app.use(apiWeb + 'missa', missaRoutes);
 app.use(apiApp + 'missa', missaAppRoutes);
