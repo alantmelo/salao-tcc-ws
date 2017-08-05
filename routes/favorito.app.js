@@ -28,10 +28,10 @@ router.get('/:id', (req, res, next) => {
                 }
             }).then((usuario) => {
                 console.log(usuario);
-                favorito.usuario = usuario;
+                favorito.usuarioIgreja = usuario;
                 callback();
             }).catch((error) => {
-                favorito.usuario = null;
+                favorito.usuarioIgreja = null;
                 callback();
             })
         }, (err) => {
