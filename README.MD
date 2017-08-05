@@ -162,7 +162,7 @@ HOST: http://104.131.169.248:3000/
 
 
 ## Igreja [APP] [/v1/app/igreja]
-### Get Igreja [GET] [/v1/app/igreja/id/:id/:origem(latitude,longitude)]  
+### Get Igreja [GET] [/v1/app/igreja/id/:id/:origem(latitude,longitude)/:idusuarioapp]  
     #### Exemplo url [host/v1/app/igreja/id/8/-9.652532,-35.735195/]
 
 + Response 201 (application/json)
