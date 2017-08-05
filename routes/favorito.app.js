@@ -12,6 +12,19 @@ router.post('/', (req, res, next) => {
             res.json(missa);
         }).catch((error) => res.send(error));
 });
+
+router.get('/:id', (req, res, next) => {
+    Favorito.find({
+        where: {
+            usuarioAppId : req.params.id
+        }
+    }).then((favoritos) => {
+        res.send(favoritos);
+        }).catch((error) => {
+            res.send(error);
+    })
+});
+
 router.delete('/:igreja/:usuario', (req, res, next) => {
     Favorito.destroy({
         where: {

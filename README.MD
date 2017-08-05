@@ -1366,6 +1366,40 @@ HOST: http://104.131.169.248:3000/
                 "updatedAt": "2017-06-19T02:01:21.787Z"
             }
 
+## Favorito [App] [/v1/app/favorito]
+### Get Favoritos [GET]  [/v1/favorito/:id]
+
++ Response 200 (application/json)
+
+        + Body
+
+            RETORNA TODOS OS FAVORITOS PEGANDO PELO ID O USUARIO
+
+### POST Favorito [POST]  [/v1/app/favorito]
+
++ Response 200 (application/json)
+
+        + Body
+        
+            {
+                favorito : {
+                    usuarioId : id, (id igreja)
+                    usuarioAppId: id (idapp)
+                }
+            }
+
+### Delete Favorito [DELETE] [/v1/app/favorito]
+
++ Request (application/json)
+
+         {
+                favorito : {
+                    usuarioId : id, (id igreja)
+                    usuarioAppId: id (idapp)
+                }
+            }
+
+
 
 
 
