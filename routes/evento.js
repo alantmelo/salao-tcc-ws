@@ -86,7 +86,7 @@ router.post('/', (req, res, next) => {
     data = data.getDate() + "_" + mes + "_" + data.getFullYear();
     let nomeArquivo = removerAcentos(req.body.evento.nome_evento) + data + '.jpg';
     console.log(nomeArquivo);
-    FileSystem.writeFile('uploads/' + nomeArquivo, foto, {
+    FileSystem.writeFile('uploads/eventos/' + nomeArquivo, foto, {
         encoding: 'base64'
     }, function (error) {
         if (error) {
@@ -118,7 +118,7 @@ router.put('/:id', (req, res, next) => {
         data = data.getDate() + "_" + mes + "_" + data.getFullYear();
         let nomeArquivo = removerAcentos(req.body.evento.nome_evento) + data + '.jpg';
         console.log(nomeArquivo);
-        FileSystem.writeFile('uploads/' + nomeArquivo, foto, {
+        FileSystem.writeFile('uploads/eventos/eventos/' + nomeArquivo, foto, {
             encoding: 'base64'
         }, function (error) {
             if (error) {
