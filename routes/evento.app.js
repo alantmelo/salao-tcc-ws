@@ -39,7 +39,7 @@ router.get('/id/:id/:origem', (req, res, next) => {
         ]
     }).then((evento) => {
         Distance.matrix([req.params.origem], [evento.endereco.latitude + ',' + evento.endereco.longitude], (err, distances) => {
-            if (distances.rows[0].elements[0].distance.text === undefined || distances.rows[0].elements[0].distance.text === "" || distances.rows[0].elements[0].distance.text === null) {
+            if (distances.rows[0].elements[0].status === 'ZERO_RESULTS') {
                 evento.distancia = "Distancia nao encontrada";
             } else {
                 evento.distancia = distances.rows[0].elements[0].distance.text;
@@ -78,7 +78,7 @@ router.get('/:origem/:cidade', (req, res, next) => {
     }).then((eventos) => {
         Async.forEach(eventos, (evento, callback) => {
             Distance.matrix([req.params.origem], [evento.endereco.latitude + ',' + evento.endereco.longitude], (err, distances) => {
-                if (distances.rows[0].elements[0].distance.text === undefined || distances.rows[0].elements[0].distance.text === "" || distances.rows[0].elements[0].distance.text === null) {
+                if (distances.rows[0].elements[0].status === 'ZERO_RESULTS') {
                     evento.distancia = "Distancia nao encontrada";
                 } else {
                     evento.distancia = distances.rows[0].elements[0].distance.text;                    

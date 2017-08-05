@@ -51,7 +51,11 @@ router.get('/id/:id/:origem', (req, res, next) => {
     }).then((missa) => {
         // res.json(missa);
         Distance.matrix([req.params.origem], [missa.usuario.endereco.latitude + ',' + missa.usuario.endereco.longitude], (err, distances) => {
-            missa.distancia = distances.rows[0].elements[0].distance.text;
+            if (distances.rows[0].elements[0].status === 'ZERO_RESULTS') {
+                missa.distancia = "Distancia nao encontrada";
+            } else {
+                missa.distancia = distances.rows[0].elements[0].distance.text;
+            }     
             res.json(missa);
         })
     }).catch((error) => res.send(error));
@@ -88,8 +92,13 @@ router.get('/:origem/:cidade', (req, res, next) => {
     }).then((missas) => {
         Async.forEach(missas, (missa, callback) => {
             Distance.matrix([req.params.origem], [missa.usuario.endereco.latitude + ',' + missa.usuario.endereco.longitude], (err, distances) => {
-                missa.distancia = distances.rows[0].elements[0].distance.text;
+                if (distances.rows[0].elements[0].status === 'ZERO_RESULTS') {
+                    missa.distancia = "Distancia nao encontrada";
+                } else {
+                    missa.distancia = distances.rows[0].elements[0].distance.text;
+                }
                 callback();
+ 
             });            
         }, (err) => {
             if (err) {

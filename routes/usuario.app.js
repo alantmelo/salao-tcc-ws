@@ -63,7 +63,7 @@ router.get('/:origem/:cidade', (req, res, next) => {
                 console.log(distances.rows[0]);
                 console.log("distances.rows[0])");
                 console.log(distances.rows[0].elements[0]);
-                if (distances.rows[0].elements[0].distance.text === undefined || distances.rows[0].elements[0].distance.text === "" || distances.rows[0].elements[0].distance.text === null) {
+                if (distances.rows[0].elements[0].status === 'ZERO_RESULTS') {
                     usuarioItem.distancia = "Distancia nao encontrada";
                     callback();
                 } else {
