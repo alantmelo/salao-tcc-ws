@@ -16,7 +16,7 @@ router.get('/', (req, res, next) => {
             all: true
         }],
         attributes: {
-            exclude: ['senha']
+            // exclude: ['senha']
         }
     })
         .then(res.send.bind(res))
