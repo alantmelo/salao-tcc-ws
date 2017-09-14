@@ -6,20 +6,9 @@ const Cors = require('cors');
 //db
 const db = require('./db');
 //rotas
-const usuarioRoutes = require('./routes/usuario');
-const usuarioAppRoutes = require('./routes/usuario.app');
-const tipoEventoRoutes = require('./routes/tipo-evento');
-const eventoRoutes = require('./routes/evento');
-const eventoAppRoutes = require('./routes/evento.app');
-const padreRoutes = require('./routes/padre');
-const tipoMissaRoutes = require('./routes/tipo-missa');
-const missaRoutes = require('./routes/missa');
-const missaAppRoutes = require('./routes/missa.app');
+const clienteRoutes = require('./routes/cliente');
 const loginRoutes = require('./routes/login');
-const santoDiaRoutes = require('./routes/santo-dia');
-const santoDiaAppRoutes = require('./routes/santo-dia.app');
-const loginAppRoutes = require('./routes/login.app');
-const favoritoRoutes = require('./routes/favorito.app');
+
 const apiVersion = "/v1";
 const apiWeb = apiVersion + "/web/";
 const apiApp = apiVersion + "/app/"
@@ -35,29 +24,8 @@ app.use('/imagem', Express.static(__dirname + '/uploads' ));
 
 //Rotas da api
 //Igreja || Usuario
-app.use(apiWeb + 'igreja', usuarioRoutes);
-app.use(apiApp + 'igreja', usuarioAppRoutes);
-//Tipo Evento
-app.use(apiWeb + 'tipoevento', tipoEventoRoutes);
-// Evento
-app.use(apiWeb + 'evento', eventoRoutes);
-app.use(apiApp + 'evento', eventoAppRoutes);
-//Padre
-app.use(apiWeb + 'padre', padreRoutes);
-//Tipo Missa
-app.use(apiWeb + 'tipomissa', tipoMissaRoutes);
-//Missa
-app.use(apiWeb + 'missa', missaRoutes);
-app.use(apiApp + 'missa', missaAppRoutes);
-//Login 
-app.use(apiWeb + 'login', loginRoutes);
-//Santo Dia
-app.use(apiWeb + 'santodia', santoDiaRoutes);
-app.use(apiApp + 'santodia', santoDiaAppRoutes);
-//Login App
-app.use(apiApp + 'login', loginAppRoutes);
-//Favorito
-app.use(apiApp + 'favorito', favoritoRoutes);
+app.use(apiApp + 'cliente', clienteRoutes);
+app.use(apiApp + 'login', loginRoutes);
 
 //Rota default
 //app.use('*', (req, res, next) => {

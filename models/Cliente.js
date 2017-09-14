@@ -1,6 +1,6 @@
 const Sequelize = require('sequelize');
 const db = require('../db');
-const UsuarioApp = db.define('usuario_app', {
+const Cliente = db.define('cliente', {
     'nome': {
         type: Sequelize.STRING,
         validate: {
@@ -8,7 +8,6 @@ const UsuarioApp = db.define('usuario_app', {
                 args: [1, 150],
                 msg: "Favor o campo nome deve ter no minimo 6 caracters e no máximo 150"
             }
-        
         }
     },
     'email': {
@@ -21,19 +20,33 @@ const UsuarioApp = db.define('usuario_app', {
             }
         }
     },
-    'foto': {
+    'telefone': {
         type: Sequelize.STRING,
         validate: {
             notEmpty: {
                 args: [true],
-                msg: "Favor inserir campo Foto"
-            }        }
+                msg: "Favor inserir campo Telefone"
+            }
+        }
     },
-    'facebookId': {
-        type: Sequelize.STRING
-    },
-    'googleId': {
-        type: Sequelize.STRING
+    'sexo': {
+        type: Sequelize.STRING,
+        unique: true,
+        validate: {
+            notEmpty: {
+                args: [true],
+                msg: "Favor inserir campo Sexo"
+            }
+        }
+    }, 
+    "imagem": {
+        type: Sequelize.STRING,
+        validate: {
+            notEmpty: {
+                args: [true],
+                msg: "Campo Foto Vazio"
+            }
+        }
     },
 });
-module.exports = UsuarioApp;
+module.exports = Cliente;
