@@ -12,12 +12,15 @@ const Cliente = db.define('cliente', {
     },
     'email': {
         type: Sequelize.STRING,
-        unique: true,
+        unique: {
+            args: true,
+            msg: 'Email já cadastrado.',
+        },
         validate: {
             isEmail: {
                 args: [true],
                 msg: "Campo email inválido"
-            }
+            },
         }
     },
     'telefone': {
@@ -29,16 +32,6 @@ const Cliente = db.define('cliente', {
             }
         }
     },
-    'sexo': {
-        type: Sequelize.STRING,
-        unique: true,
-        validate: {
-            notEmpty: {
-                args: [true],
-                msg: "Favor inserir campo Sexo"
-            }
-        }
-    }, 
     "imagem": {
         type: Sequelize.STRING,
         validate: {

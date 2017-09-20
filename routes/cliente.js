@@ -47,7 +47,8 @@ router.post('/', (req, res, next) => {
         req.body.cliente.usuarioId = cliente.id;
         req.body.cliente.tipo = "2";
         Login.create(req.body.cliente).then((login) => {
-            req.body.cliente.login = login;
+            delete req.body.cliente.senha;
+            // req.body.cliente.login = login;
             res.json(req.body.cliente);
         }).catch((error) => res.send(error.errors));
     }).catch((error) => res.send(error.errors));

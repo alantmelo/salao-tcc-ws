@@ -8,6 +8,7 @@ const db = require('./db');
 //rotas
 const clienteRoutes = require('./routes/cliente');
 const loginRoutes = require('./routes/login');
+const categoriaRoutes = require('./routes/categoria');
 
 const apiVersion = "/v1";
 const apiWeb = apiVersion + "/web/";
@@ -26,6 +27,7 @@ app.use('/imagem', Express.static(__dirname + '/uploads' ));
 //Igreja || Usuario
 app.use(apiApp + 'cliente', clienteRoutes);
 app.use(apiApp + 'login', loginRoutes);
+app.use(apiApp + 'categoria', categoriaRoutes);
 
 //Rota default
 //app.use('*', (req, res, next) => {
