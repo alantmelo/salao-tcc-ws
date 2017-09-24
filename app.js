@@ -9,6 +9,7 @@ const db = require('./db');
 const clienteRoutes = require('./routes/cliente');
 const loginRoutes = require('./routes/login');
 const categoriaRoutes = require('./routes/categoria');
+const servicoRoutes = require('./routes/servico');
 
 const apiVersion = "/v1";
 const apiWeb = apiVersion + "/web/";
@@ -28,7 +29,7 @@ app.use('/imagem', Express.static(__dirname + '/uploads' ));
 app.use(apiApp + 'cliente', clienteRoutes);
 app.use(apiApp + 'login', loginRoutes);
 app.use(apiApp + 'categoria', categoriaRoutes);
-
+app.use(apiApp + 'servico', servicoRoutes);
 //Rota default
 //app.use('*', (req, res, next) => {
   //  res.send("Pagina Default");

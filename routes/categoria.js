@@ -42,14 +42,42 @@ router.post('/', (req, res, next) => {
 });
 
 router.put('/:id', (req, res, next) => {
-    Categoria.update(req.body.categoria, {
-        where: {
-            id: req.params.id
-        },
-        returning: true
-    }).then((categoria) => {
-        res.json(req.body.categoria);
-    }).catch((error) => res.send(error.errors));
+    if (req.body.categoria.imagem == "" || req.body.categoria.imagem == undefined) {
+        Categoria.update(req.body.categoria, {
+            where: {
+                id: req.params.id
+            },
+            fields: ['nome'],
+            returning: true
+        }).then((categoria) => {
+            res.json("Categoria editada com sucesso");
+        }).catch((error) => res.send(error.errors));
+    } else {
+        console.log(req.body.categoria);
+        let imagem = req.body.categoria.imagem.replace(/^data:image\/\w+;base64,/, '');
+        let data = new Date();
+        let mes = data.getMonth() + 1;
+        data = data.getDate() + "_" + mes + "_" + data.getFullYear();
+        let nomeArquivo = removerAcentos(req.body.categoria.nome) + data + '.jpg';
+        console.log(nomeArquivo);
+        FileSystem.writeFile('uploads/categorias/' + nomeArquivo, imagem, {
+            encoding: 'base64'
+        }, function (error) {
+            if (error) {
+                res.send(error);
+            } else {
+                req.body.categoria.imagem = nomeArquivo;
+                Categoria.update(req.body.categoria, {
+                    where: {
+                        id: req.params.id
+                    },
+                    returning: true
+                }).then((categoria) => {
+                    res.json("Categoria editada com sucesso");
+                }).catch((error) => res.send(error.errors));
+            }
+        });
+    }
 });
 
 router.delete('/:id', (req, res, next) => {

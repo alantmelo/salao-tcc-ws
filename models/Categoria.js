@@ -1,6 +1,6 @@
 const Sequelize = require('sequelize');
 const db = require('../db');
-const Categoria = db.define('categoria', {
+const Categoria = db.define('categorias', {
     'nome': {
         type: Sequelize.STRING,
         validate: {
