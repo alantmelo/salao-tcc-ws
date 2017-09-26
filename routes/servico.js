@@ -27,7 +27,7 @@ router.post('/', (req, res, next) => {
 });
 
 router.put('/:id', (req, res, next) => {
-    Servico.update(req.body.categoria, {
+    Servico.update(req.body.servico, {
         where: {
             id: req.params.id
         },

@@ -10,6 +10,8 @@ const clienteRoutes = require('./routes/cliente');
 const loginRoutes = require('./routes/login');
 const categoriaRoutes = require('./routes/categoria');
 const servicoRoutes = require('./routes/servico');
+const promocaoRoutes = require('./routes/promocao');
+const funcionarioRoutes = require('./routes/funcionario');
 
 const apiVersion = "/v1";
 const apiWeb = apiVersion + "/web/";
@@ -30,6 +32,8 @@ app.use(apiApp + 'cliente', clienteRoutes);
 app.use(apiApp + 'login', loginRoutes);
 app.use(apiApp + 'categoria', categoriaRoutes);
 app.use(apiApp + 'servico', servicoRoutes);
+app.use(apiApp + 'promocao', promocaoRoutes);
+app.use(apiApp + 'funcionario', funcionarioRoutes);
 //Rota default
 //app.use('*', (req, res, next) => {
   //  res.send("Pagina Default");

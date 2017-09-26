@@ -13,9 +13,6 @@ const Promocao = db.define('promocao', {
     'valorPromocional': {
         type: Sequelize.FLOAT,
     },
-    'tempo': {
-        type: Sequelize.INTEGER, //em minutos
-    },
     'descricao': {
         type: Sequelize.STRING,
         validate: {

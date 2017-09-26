@@ -29,5 +29,23 @@ const Horario = db.define('horario', {
         type: Sequelize.BOOLEAN,
         defaultValue: true,
     },
+    "horarioInicial": {
+        type: Sequelize.STRING,
+        validate: {
+            notEmpty: {
+                args: [true],
+                msg: "Favor inserir campo horarioInicial"
+            }
+        }
+    },
+    "horarioFinal": {
+        type: Sequelize.STRING,
+        validate: {
+            notEmpty: {
+                args: [true],
+                msg: "Favor inserir campo horarioFinal"
+            }
+        }
+    }
 });
 module.exports = Horario;
