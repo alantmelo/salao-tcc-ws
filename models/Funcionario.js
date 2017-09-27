@@ -75,6 +75,9 @@ const Funcionario = db.define('funcionario', {
                 msg: "Favor inserir campo Sexo"
             }
         }
+    },
+    'servicos': {
+        type: Sequelize.VIRTUAL
     }
 });
 module.exports = Funcionario;
