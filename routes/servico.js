@@ -14,10 +14,22 @@ router.get('/:id', (req, res, next) => {
     }).catch((error) => res.send(error));
 });
 
+router.get('/categoria/:id', (req, res, next) => {
+    Servico.findAll({
+        where: {
+            categoriaId :  req.params.id
+        },
+        include: [{ all: true }]
+    }).then((servicos) => {
+        res.json(servicos);
+    }).catch((error) => res.send(error));
+});
+
 router.get('/', (req, res, next) => {
     Servico.findAll({ include: [{ all: true }]}).then((servicos) => {
         res.json(servicos);
     }).catch((error) => res.send(error));
+    
 });
 
 router.post('/', (req, res, next) => {
