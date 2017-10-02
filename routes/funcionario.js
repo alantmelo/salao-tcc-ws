@@ -10,6 +10,7 @@ const FuncionarioHorario = Funcionario.hasOne(Horario, {
     onDelete: 'cascade',
     hooks: true
 });
+const moment = require('moment');
 
 const FuncionarioServicoHasMany = FuncionarioServico.belongsTo(Funcionario);
 const ServicoFuncionarioHasMany = FuncionarioServico.belongsTo(Servico);
@@ -72,10 +73,70 @@ router.get('/:id', (req, res, next) => {
 });
 
 router.get('/servico/:servico', (req, res, next) => {
-    FuncionarioServico.findAll({ where: { servicoId: req.params.servico }, include : [{all:true}] }).then((funcionarios) => {
+    FuncionarioServico.findAll({ where: { servicoId: req.params.servico }, include: [{ all: true }] }).then((funcionarios) => {
         res.json(funcionarios);
     }).catch((error) => res.send(error.errors))
-})
+});
+
+router.get('/horario-disponivel/:funcionario', (req, res, next) => {
+    Funcionario.findById(req.params.funcionario, { include: [{ all: true }] }).then((funcionario) => {
+        let horarioInicial = funcionario.horario.horarioInicial.split(':', 2);
+
+        let horarioFinal = funcionario.horario.horarioFinal.split(':', 2);
+
+        let horarioEmMinutosMin = (horarioFinal[0] - horarioInicial[0]) * 60;
+        horarioEmMinutosMin += (horarioFinal[1] - horarioInicial[1]);
+        //Duracao do maior servico
+        FuncionarioServico.findAll({ where: { funcionarioId: req.params.funcionario }, include: [{ all: true }] }).then((horarios) => {
+            // console.log(funcionarios);
+            let duracao = 0;
+            Async.forEach(horarios, (horarioServico, callback) => {
+                
+                if (duracao < horarioServico.servico.tempo) {
+                    duracao = horarioServico.servico.tempo;
+                }
+                callback();
+            }, (err) => {
+                if (err) {
+                    res.send(err);
+                } else {
+                    let quantidade = Math.floor(horarioEmMinutosMin / duracao);
+                    //Descobre quantos horarios vai ter
+                    //Aqui haverá os horarios marcardos para esse funcionario - vou colocar fixo só para teste
+                    let horariosMarcado = [];
+                    let horariosDisponiveis = [];
+                    for (let i = 0; i < quantidade; i++){
+                        let horaAdicional = Math.floor((duracao * i) / 60);
+                        let minutosAdicionais = (duracao * i) % 60;
+                        let horario = new Date('', '', '', horarioInicial[0] + horaAdicional, horarioInicial[1] + minutosAdicionais, 0);
+                        let hora;
+                        let minuto;
+                        if (horario.getHours() < 10) {
+                            hora = '0' + horario.getHours();
+                        } else {
+                            hora = horario.getHours();
+                        }
+                        if (horario.getMinutes() < 10) {
+                            minuto = '0' + horario.getMinutes();
+                        } else {
+                            hora = horario.getMinutes();
+                        }
+                        let horarioEditado = hora + ':' +  minuto;
+                      
+                        if (horariosMarcado.some(x => { return x == horarioEditado}) ) {
+                            
+                        } else {
+                            horariosDisponiveis.push(horarioEditado);
+                        }
+                    }
+                    res.json(horariosDisponiveis);
+                }
+            });
+
+        }).catch((error) => res.send(error.errors));
+
+    }).catch((error) => res.send(error.errors));
+});
 
 router.post('/', (req, res, next) => {
     horario = {
@@ -106,6 +167,7 @@ router.post('/', (req, res, next) => {
     let mes = data.getMonth() + 1;
     data = data.getDate() + "_" + mes + "_" + data.getFullYear();
     let nomeArquivo = removerAcentos(req.body.funcionario.nome) + data + '.jpg';
+    nomeArquivo = nomeArquivo.replace(' ', '');
     console.log(nomeArquivo);
     FileSystem.writeFile('uploads/funcionarios/' + nomeArquivo, imagem, {
         encoding: 'base64'
@@ -175,7 +237,7 @@ router.put('/:id', (req, res, next) => {
     req.body.funcionario.servicos = servicos;
 
     if (req.body.funcionario.imagem == "" || req.body.funcionario.imagem == undefined) {
-        updateFuncionario(req.body.funcionario,id);
+        updateFuncionario(req.body.funcionario, id);
     } else {
 
         let imagem = req.body.funcionario.imagem.replace(/^data:image\/\w+;base64,/, '');
@@ -196,22 +258,22 @@ router.put('/:id', (req, res, next) => {
 
             }
         });
-        
+
     }
 
 });
 
-function updateFuncionario(funcionario, id){  
+function updateFuncionario(funcionario, id) {
 
     Funcionario.update(funcionario, {
         where: {
-            id: id  
+            id: id
         },
         include: [{
             association: FuncionarioHorario,
         }]
     }).then((funcionario) => {
-        
+
         let contador = req.body.funcionario.servicos.length;
         let flag = 1;
         for (let servico of req.body.funcionario.servicos) {
@@ -224,9 +286,9 @@ function updateFuncionario(funcionario, id){
                 // req.body.funcionario.senha = req.body.funcionario.cpf;
                 Login.update(req.body.funcionario,
                     { where: { usuarioId: id } }).then((login) => {
-                    delete req.body.funcionario.senha;
-                    res.json(req.body.funcionario);
-                }).catch((error) => res.send(error.errors));
+                        delete req.body.funcionario.senha;
+                        res.json(req.body.funcionario);
+                    }).catch((error) => res.send(error.errors));
 
             } else {
                 flag++;
@@ -234,8 +296,9 @@ function updateFuncionario(funcionario, id){
             let data = { servicoId: servico.id, funcionarioId: funcionario.id }
             FuncionarioServico.update(data, {
                 where: {
-                    funcionarioId : id
-            }}).then((funcionarioServico) => {
+                    funcionarioId: id
+                }
+            }).then((funcionarioServico) => {
                 // res.json(funcionarioServico);
 
             }).catch((error) => res.send(error.errors));
