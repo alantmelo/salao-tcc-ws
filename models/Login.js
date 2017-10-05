@@ -26,7 +26,6 @@ const Login = db.define('login', {
     },
     'usuarioId': {
         type: Sequelize.STRING,
-        unique: true,
         validate: {
             notEmpty: {
                 args: [true],
